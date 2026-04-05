@@ -1,0 +1,13 @@
+{
+  "pages": {},
+  "app": {
+    "[project]/src/app/home3/page": [
+      "static/media/YA9Qr0Wd4kDdMtDqHTLMkiQqtbGs-s.p.1944bce7.woff2",
+      "static/media/YA9dr0Wd4kDdMthROCfhsCkA-s.p.439732b4.woff2",
+      "static/media/xn7gYHE41ni1AdIRggexSvfedN4-s.p.2b9b556b.woff2",
+      "static/media/QGYsz_wNahGAdqQ43Rh_fKDptfpA4Q-s.p.9ad5ece5.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
+  "pagesUsingSizeAdjust": false
+}

@@ -1,0 +1,357 @@
+/* [project]/src/app/assets/ceylonix.css [app-client] (css) */
+:root {
+  --ceylon-bg: #01000b;
+  --ceylon-card-bg: #0a0a1f;
+  --ceylon-purple: #d400ff;
+  --ceylon-pink: #ff0080;
+  --ceylon-gradient: linear-gradient(90deg, var(--ceylon-purple) 0%, var(--ceylon-pink) 100%);
+  --ceylon-text: #fff;
+  --ceylon-text-dim: #a0a0a0;
+  --ceylon-border: #ffffff1a;
+  --glass-bg: #ffffff08;
+  --glass-border: #ffffff14;
+}
+
+body {
+  font-family: Manrope, sans-serif;
+  background-color: var(--ceylon-bg) !important;
+  color: var(--ceylon-text) !important;
+}
+
+.ceylon-container {
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+@media (width <= 991px) {
+  .ceylon-container {
+    padding: 0 25px;
+  }
+
+  .ceylon-section {
+    padding: 60px 0;
+  }
+}
+
+@media (width <= 767px) {
+  .ceylon-container {
+    padding: 0 15px;
+  }
+}
+
+.ceylon-gradient-text {
+  background: var(--ceylon-gradient);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+}
+
+.ceylon-btn-primary {
+  background: var(--ceylon-gradient);
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  font-weight: 700;
+  transition: all .3s;
+  display: inline-flex;
+}
+
+.ceylon-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px #d400ff4d;
+}
+
+.ceylon-btn-outline {
+  color: #fc0fc0;
+  border: 1px solid var(--ceylon-purple);
+  cursor: pointer;
+  background: none;
+  border-radius: 50px;
+  padding: 14px 28px;
+  font-weight: 700;
+  transition: all .3s;
+}
+
+.ceylon-btn-outline:hover {
+  background: #d400ff1a;
+}
+
+.ceylon-card {
+  background: var(--ceylon-card-bg);
+  border: 1px solid var(--ceylon-border);
+  border-radius: 20px;
+  padding: 30px;
+  transition: all .3s;
+}
+
+.ceylon-card:hover {
+  border-color: var(--ceylon-purple);
+  transform: translateY(-5px);
+}
+
+.ceylon-section {
+  padding: 100px 0;
+}
+
+.ceylon-subtitle {
+  color: #fff;
+  font-family: var(--font-kaushan), cursive;
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: 400;
+  display: block;
+}
+
+.ceylon-title {
+  margin-bottom: 25px;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.bg-gradient-pink-purple {
+  background: linear-gradient(135deg, #ff0080 0%, #d400ff 100%);
+}
+
+.border-gradient {
+  background: linear-gradient(var(--ceylon-card-bg), var(--ceylon-card-bg)) padding-box, var(--ceylon-gradient) border-box;
+  border: 1px solid #0000;
+  position: relative;
+}
+
+.hero-content-card {
+  backdrop-filter: blur(15px);
+  background: #14141466;
+  border: 1px solid #ffffff1a;
+  border-radius: 20px;
+  max-width: 650px;
+  margin-top: 40px;
+  padding: 50px 45px;
+}
+
+.hero-title-main {
+  color: #fff;
+  font-size: 62px;
+  line-height: 1.05;
+}
+
+@media (width <= 991px) {
+  .hero-title-main {
+    font-size: 48px;
+  }
+
+  .ceylon-title {
+    font-size: 40px;
+  }
+}
+
+@media (width <= 767px) {
+  .hero-content-card {
+    text-align: center;
+    margin-top: 100px;
+    padding: 30px 25px;
+  }
+
+  .hero-title-main {
+    font-size: 36px;
+  }
+}
+
+@media (width <= 575px) {
+  .hero-title-main {
+    font-size: 32px;
+  }
+
+  .hero-btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.gallery-container {
+  height: 500px;
+}
+
+@media (width <= 767px) {
+  .gallery-container {
+    height: 350px;
+  }
+}
+
+@media (width <= 575px) {
+  .gallery-container {
+    height: 280px;
+  }
+}
+
+.ceylon-cta-card {
+  color: #fff;
+  background: linear-gradient(135deg, #ff0080 0%, #d400ff 100%);
+  border-radius: 40px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 80px 100px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (width <= 991px) {
+  .ceylon-cta-card {
+    text-align: center;
+    flex-direction: column;
+    padding: 60px 40px;
+  }
+
+  .ceylon-cta-card div {
+    max-width: 100% !important;
+  }
+
+  .ceylon-cta-card img {
+    margin-top: 40px;
+    height: 300px !important;
+    position: relative !important;
+  }
+}
+
+@media (width <= 575px) {
+  .ceylon-cta-card {
+    border-radius: 20px;
+    padding: 40px 20px;
+  }
+
+  .ceylon-cta-card h2 {
+    font-size: 32px !important;
+  }
+
+  .ceylon-cta-card .d-flex {
+    flex-direction: column;
+  }
+
+  .ceylon-cta-card button {
+    width: 100%;
+  }
+}
+
+.planning-img {
+  object-fit: cover;
+  border-radius: 20px;
+  width: 100%;
+  height: 250px;
+}
+
+.ceylon-planning {
+  overflow-x: visible;
+}
+
+.ceylon-planning .planning-section-lead {
+  max-width: 640px;
+}
+
+@media (width >= 992px) {
+  .ceylon-planning .planning-section-steps {
+    padding-left: 28px;
+    padding-right: .5rem;
+  }
+
+  .ceylon-planning .planning-section-media {
+    padding-top: 0;
+  }
+}
+
+.ceylon-planning .planning-collage {
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: .5rem;
+  width: 100%;
+}
+
+@media (width >= 576px) {
+  .ceylon-planning .planning-collage {
+    gap: 1rem;
+  }
+}
+
+@media (width >= 992px) {
+  .ceylon-planning .planning-section-row {
+    --bs-gutter-x: 3.75rem;
+    --bs-gutter-y: 2rem;
+  }
+
+  .ceylon-planning .planning-collage {
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: minmax(0, 1.14fr) minmax(0, .86fr);
+    gap: 1.125rem;
+    height: clamp(270px, 36vw, 150px);
+  }
+
+  .ceylon-planning .planning-collage-main, .ceylon-planning .planning-collage-side {
+    border-radius: 20px;
+  }
+}
+
+@media (width <= 991px) {
+  .ceylon-planning .planning-collage {
+    min-height: clamp(260px, 58vw, 360px);
+  }
+
+  .ceylon-planning .planning-collage-main, .ceylon-planning .planning-collage-side {
+    border-radius: 16px;
+  }
+}
+
+@media (width <= 767px) {
+  .planning-img {
+    height: 200px;
+  }
+
+  .ceylon-planning .planning-timeline-wrap {
+    padding-bottom: 4px;
+    padding-left: 6px;
+  }
+
+  .ceylon-planning .planning-step-badge {
+    left: -46px !important;
+  }
+}
+
+@media (width <= 575px) {
+  .ceylon-planning .planning-collage {
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .ceylon-planning .planning-collage-main {
+    aspect-ratio: 4 / 3;
+    grid-row: auto !important;
+    min-height: 200px !important;
+  }
+
+  .ceylon-planning .planning-collage-side {
+    aspect-ratio: 16 / 10;
+    min-height: 160px !important;
+  }
+}
+
+@media (width <= 767px) {
+  .testimonial-card {
+    padding: 40px 20px !important;
+  }
+
+  .testimonial-card p {
+    font-size: 16px !important;
+  }
+}
+
+.ceylon-dest-card-hover:hover .dest-img {
+  transform: scale(1.05);
+}
+
+/*# sourceMappingURL=src_app_assets_ceylonix_css_f9ee138c._.single.css.map*/
