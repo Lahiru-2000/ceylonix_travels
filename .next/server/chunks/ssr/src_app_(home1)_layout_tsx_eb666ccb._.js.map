@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///C:/Lahiru/subo%20new%20project/New%20folder/ceylonix_travels/src/app/%28home1%29/layout.tsx"],"sourcesContent":["import React from 'react';\r\n\r\nconst DefalultLayout = ({ children }) => {\r\n    return (\r\n        <div className='main-page-area'>\r\n            {children}\r\n        </div>\r\n    );\r\n};\r\n\r\nexport default DefalultLayout;"],"names":[],"mappings":";;;;;AAEA,MAAM,iBAAiB,CAAC,EAAE,QAAQ,EAAE;IAChC,qBACI,8OAAC;QAAI,WAAU;kBACV;;;;;;AAGb;uCAEe","debugId":null}}]
-}
