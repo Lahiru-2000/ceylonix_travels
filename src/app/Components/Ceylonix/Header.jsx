@@ -28,10 +28,11 @@ const CeylonixHeader = ({ logoImage }) => {
 
   const navLinks = [
     { title: "Home", href: "/" },
+    { title: "About", href: "/about-us" },
     { title: "Destinations", href: "/destinations" },
-    { title: "Packages", href: "/tour" },
-    { title: "About", href: "/about" },
+    { title: "Gallery", href: "/gallery" },
     { title: "Blog", href: "/blog" },
+    // { title: "Packages", href: "/tour" },
   ];
 
   return (
@@ -107,11 +108,11 @@ const CeylonixHeader = ({ logoImage }) => {
             href="/contact"
             className="d-none d-md-inline-flex align-items-center rounded-pill text-decoration-none"
             style={{
-              border: "1px solid #ffffff",
-              background: "transparent",
-              color: "#ffffff",
+              border: navLinkIsActive(pathname, "/contact") ? "none" : "1px solid #ffffff",
+              background: navLinkIsActive(pathname, "/contact") ? "#ffffff" : "transparent",
+              color: navLinkIsActive(pathname, "/contact") ? "#E91E8C" : "#ffffff",
               fontSize: "16px",
-              fontWeight: 500,
+              fontWeight: 600,
               padding: "8px 8px 8px 26px",
               gap: "18px",
               minHeight: "48px",
@@ -119,20 +120,26 @@ const CeylonixHeader = ({ logoImage }) => {
               justifyContent: "space-between",
               fontFamily:
                 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif',
+              transition: "all 0.3s ease",
             }}
           >
             <span style={{ lineHeight: 1, whiteSpace: "nowrap" }}>
               Contact Us
             </span>
             <span
-              className="d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle bg-white"
+              className="d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle"
               style={{
                 width: 36,
                 height: 36,
+                background: navLinkIsActive(pathname, "/contact") ? "#E91E8C" : "#ffffff",
               }}
               aria-hidden
             >
-              <HiArrowUpRight size={18} color="#FF0080" strokeWidth={2.25} />
+              <HiArrowUpRight
+                size={18}
+                color={navLinkIsActive(pathname, "/contact") ? "#ffffff" : "#FF0080"}
+                strokeWidth={2.25}
+              />
             </span>
           </Link>
 

@@ -4,6 +4,14 @@ import Link from "next/link";
 import { FaFacebook, FaInstagram, FaTwitter, FaGithub, FaGoogle } from "react-icons/fa";
 
 const CeylonixFooter = ({ logoImage }) => {
+  const quickLinks = [
+    { label: "Home", href: "/" },
+    { label: "About Us", href: "/about-us" },
+    { label: "Destinations", href: "/destinations" },
+    { label: "Packages", href: "/tour" },
+    { label: "Contact", href: "/contact" },
+  ];
+
   return (
     <footer
       className="ceylon-footer pt-5 pb-0"
@@ -54,14 +62,14 @@ const CeylonixFooter = ({ logoImage }) => {
               Quick Link
             </h4>
             <ul className="list-unstyled m-0 p-0">
-              {["Home", "About Us", "Destinations", "Packages", "Contact"].map((label) => (
-                <li key={label} className="mb-3">
+              {quickLinks.map((item) => (
+                <li key={item.label} className="mb-3">
                   <Link
-                    href="/"
+                    href={item.href}
                     className="text-decoration-none text-white"
                     style={{ fontSize: "15px" }}
                   >
-                    {label}
+                    {item.label}
                   </Link>
                 </li>
               ))}
