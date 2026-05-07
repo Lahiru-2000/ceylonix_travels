@@ -6,10 +6,13 @@ const DestinationExperience = ({ image }) => {
     <section style={{ background: "#0C111D", padding: "0 0 90px" }}>
       <div className="ceylon-container">
         <div className="text-center mb-4">
-          <span className="ceylon-subtitle">Guide Tour Blog</span>
+          <span className="ceylon-subtitle">Watch Our Story</span>
           <h2 className="ceylon-title text-white mb-3" style={{ fontSize: "42px" }}>
             Unforgettable Travel Experiences Await You
           </h2>
+          <p style={{ color: "rgba(255,255,255,0.66)", marginBottom: "28px", fontSize: "14px" }}>
+       Explore Sri Lanka through real journeys and authentic travel moments with Ceylonix.
+        </p>
           <div className="d-flex justify-content-center gap-2">
             <button
               type="button"
@@ -22,7 +25,7 @@ const DestinationExperience = ({ image }) => {
                 color: "#fff",
               }}
             >
-              Scenic
+              Contact Us
             </button>
             <button
               type="button"
@@ -35,7 +38,7 @@ const DestinationExperience = ({ image }) => {
                 color: "#FC0FC0",
               }}
             >
-              Cultural
+              Request Tour
             </button>
           </div>
         </div>

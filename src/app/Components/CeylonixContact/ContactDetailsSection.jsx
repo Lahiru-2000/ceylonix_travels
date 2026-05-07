@@ -61,7 +61,8 @@ const ContactDetailsSection = ({ image }) => {
           ))}
         </div>
 
-        <div style={{ marginTop: "50px", background: "#0A0E1F", borderRadius: "28px", padding: "24px" }}>
+        {/* <div style={{ marginTop: "50px", background: "#1f0a16", borderRadius: "28px", padding: "24px" }}> */}
+        <div style={{ marginTop: "50px"}}>
           <div className="row g-4 align-items-stretch">
             {/* Image Box */}
             <div className="col-lg-5">
@@ -111,8 +112,8 @@ const ContactDetailsSection = ({ image }) => {
                 </p>
 
                 <form onSubmit={(e) => e.preventDefault()} style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-                  <div className="row g-3" style={{ marginBottom: "16px" }}>
-                    <div className="col-md-6">
+                  <div className="row g-3" style={{ marginRight: 0, marginLeft: 0, marginBottom: "16px" }}>
+                    <div className="col-md-6" style={{ paddingRight: 0, paddingLeft: 0 }}>
                       <label htmlFor="contactName" style={{ display: "block", color: "#fff", fontSize: "13px", marginBottom: "8px", fontWeight: 600 }}>
                         Full Name
                       </label>
@@ -133,7 +134,7 @@ const ContactDetailsSection = ({ image }) => {
                         }}
                       />
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-6" style={{ paddingRight: 0, paddingLeft: 0 }}>
                       <label htmlFor="contactEmail" style={{ display: "block", color: "#fff", fontSize: "13px", marginBottom: "8px", fontWeight: 600 }}>
                         Email Address
                       </label>

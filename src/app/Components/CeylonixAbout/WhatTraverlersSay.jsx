@@ -39,7 +39,7 @@ const CeylonixTestimonials = ({ userImg }) => {
   const next = () => setI((x) => (x + 1) % reviews.length);
 
   return (
-    <section className="ceylon-testimonials ceylon-section" style={{ background: "#000119"    }}>
+    <section className="ceylon-testimonials ceylon-section" style={{ background: "#192030"    }}>
       <div className="ceylon-container">
         <div className="row g-3 align-items-center">
           <div className="col-lg-4">
@@ -57,7 +57,7 @@ const CeylonixTestimonials = ({ userImg }) => {
 
           <div className="col-lg-8">
             <span className="ceylon-subtitle text-white d-block mb-2">Testimonials</span>
-            <h2 className="ceylon-title text-white mb-4 pt-2" style={{font:"60px"}}>What Our Travelers Say</h2>
+            <h2 className="ceylon-title text-white mb-4 pt-2" style={{font:"60px"}}>Travelers Love Our Service</h2>
 
             <div className="d-flex flex-column flex-lg-row align-items-stretch gap-3 gap-lg-4">
               <div className="flex-grow-1 min-w-0">

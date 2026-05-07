@@ -5,7 +5,7 @@ import CeylonixFooter from "../../Components/Ceylonix/Footer";
 import CeylonixCTA from "../../Components/Ceylonix/CTA";
 import DestinationHero from "../../Components/CeylonixDestination/DestinationHero";
 import DestinationPlacesGrid from "../../Components/CeylonixDestination/DestinationPlacesGrid";
-import DestinationExperience from "../../Components/CeylonixDestination/DestinationExperience";
+import DestinationExperience from "../../Components/CeylonixDestination/WatchStory";
 import DestinationDiscoveries from "../../Components/CeylonixDestination/DestinationDiscoveries";
 
 const logoPath = "/assets/images/ceylonix/logoceylonix.png";
@@ -23,20 +23,20 @@ const destinationItems = [
 ];
 
 const discoveryPosts = [
-  { title: "Bentota Beach Tour", desc: "Coastal beauty, waves, and island relaxation.", image: "/assets/images/ceylonix/travelExperiance2.jpg" },
-  { title: "Ella Train Journey", desc: "One of the most scenic train rides in Asia.", image: "/assets/images/ceylonix/dest1.png" },
-  { title: "Cultural Triangle Tour", desc: "Temples, ruins, and heritage landmarks.", image: "/assets/images/ceylonix/dest2.png" },
-  { title: "Wildlife Safari Visits", desc: "Discover leopards, elephants, and birdlife.", image: "/assets/images/ceylonix/dest4.png" },
+  { title: "Bentota Beach Tour", desc: "Coastal beauty, waves, and island relaxation.",price:"From $140 / Person", image: "/assets/images/ceylonix/travelExperiance2.jpg" },
+  { title: "Ella Train Journey", desc: "One of the most scenic train rides in Asia.",price:"From $140 / Person", image: "/assets/images/ceylonix/dest1.png" },
+  { title: "Cultural Triangle Tour", desc: "Temples, ruins, and heritage landmarks.", price:"From $140 / Person", image: "/assets/images/ceylonix/dest2.png" },
+  { title: "Wildlife Safari Visits", desc: "Discover leopards, elephants, and birdlife.", price:"From $140 / Person", image: "/assets/images/ceylonix/dest4.png" },
 ];
 
 const DestinationsPage = () => {
   return (
     <div style={{ background: "var(--ceylon-bg)", minHeight: "100vh" }}>
       <CeylonixHeader logoImage={logoPath} />
-      <main style={{ background: "#01000B" }}>
+      <main style={{ background: "#0C111D" }}>
         <DestinationHero image={destinationHero} />
         <DestinationPlacesGrid items={destinationItems} />
-        <DestinationExperience image="/assets/images/ceylonix/ourJourny.jpg" />
+        <DestinationExperience image="/assets/images/ceylonix/watch-story.jpg" />
         <CeylonixCTA ctaImg="/assets/images/ceylonix/planTrip.png" />
         <DestinationDiscoveries posts={discoveryPosts} />
       </main>

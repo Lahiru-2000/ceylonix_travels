@@ -5,7 +5,7 @@ import { FaStar } from "react-icons/fa";
 
 const DestinationPlacesGrid = ({ items }) => {
   return (
-    <section style={{ background: "#060A24", padding: "80px 0" }}>
+    <section style={{ background: "#0C111D", padding: "80px 0" }}>
       <div className="ceylon-container">
         <span className="ceylon-subtitle">Explore Sri Lanka</span>
         <h2 className="ceylon-title text-white mb-3" style={{ fontSize: "42px" }}>
@@ -21,7 +21,7 @@ const DestinationPlacesGrid = ({ items }) => {
               <article
                 style={{
                   borderRadius: "20px",
-                  border: "2px solid #00D4FF",
+                  border: "1px solid #FAC3FF",
                   background: "#050825",
                   overflow: "hidden",
                   height: "100%",

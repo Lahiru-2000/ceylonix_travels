@@ -26,7 +26,9 @@ const CeylonixWhyChooseUs = ({ whyChooseUs }) => {
     <section
       className="ceylon-why-choose ceylon-section"
       style={{
-        background: "linear-gradient(120deg, #0b3d3f 0%, #0a1b3d 50%, #2a0f3f 100%)",
+       background: "linear-gradient(120deg, #0b3d3f 0%, #0a1b3d 50%, #2a0f3f 100%)"
+,
+
         position: "relative",
         overflow: "hidden",
       }}
@@ -44,7 +46,7 @@ const CeylonixWhyChooseUs = ({ whyChooseUs }) => {
         }}
       />
       <div className="ceylon-container position-relative" style={{ zIndex: 1 }}>
-        <div className="row align-items-center g-3">
+        <div className="row align-items-center g-5">
           <div className="col-lg-6">
             <motion.div
               initial={{ opacity: 0, x: -40 }}
@@ -104,7 +106,7 @@ const CeylonixWhyChooseUs = ({ whyChooseUs }) => {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
               // className="position-relative"
-              // style={{ minHeight: "420px" }}
+              style={{ minHeight: "420px" }}
             >
               <div
                 className=" rounded-4 overflow-hidden "

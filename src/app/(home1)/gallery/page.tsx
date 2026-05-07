@@ -1,12 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import CeylonixHeader from "../../Components/Ceylonix/Header";
 import CeylonixFooter from "../../Components/Ceylonix/Footer";
 import CeylonixCTA from "../../Components/Ceylonix/CTA";
 
 const logoPath = "/assets/images/ceylonix/logoceylonix.png";
-
 const heroBg = "/assets/images/ceylonix/gallery-bg.jpg";
 
 const galleryItems = [
@@ -26,14 +25,39 @@ const galleryItems = [
   "https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=900&q=80",
   "https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef?auto=format&fit=crop&w=900&q=80",
   "https://images.unsplash.com/photo-1533843625767-5b76338c6788?auto=format&fit=crop&w=900&q=80",
+  "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=900&q=80",
+  "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=900&q=80",
+  "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=900&q=80",
+  "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=900&q=80",
+  "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=900&q=80",
+  "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=900&q=80",
+  "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=900&q=80",
 ];
 
 const GalleryPage = () => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 16;
+
+  const handleNext = () => {
+    setCurrentPage((prevPage) =>
+      prevPage < Math.ceil(galleryItems.length / itemsPerPage) - 1
+        ? prevPage + 1
+        : prevPage
+    );
+  };
+
+  const handlePrev = () => {
+    setCurrentPage((prevPage) => (prevPage > 0 ? prevPage - 1 : prevPage));
+  };
+
+  const startIndex = currentPage * itemsPerPage;
+  const currentItems = galleryItems.slice(startIndex, startIndex + itemsPerPage);
+
   return (
     <div style={{ background: "var(--ceylon-bg)", minHeight: "100vh" }}>
       <CeylonixHeader logoImage={logoPath} />
 
-      <main style={{ background: "#01000B" }}>
+      <main style={{ background: "#0C111D" }}>
         <section style={{ position: "relative", height: "480px", overflow: "hidden" }}>
           <div
             style={{
@@ -81,17 +105,17 @@ const GalleryPage = () => {
         <section style={{ background: "#060A24", padding: "70px 0 80px" }}>
           <div className="ceylon-container">
             <span className="ceylon-subtitle" style={{ marginBottom: "6px" }}>
-              Featured Journey
+              Featured Journeys
             </span>
             <h2 className="ceylon-title text-white mb-2" style={{ fontSize: "52px" }}>
               Unforgettable Travel Discoveries
             </h2>
-            <p style={{ color: "rgba(255,255,255,0.66)", marginBottom: "30px", fontSize: "13px", maxWidth: "930px" }}>
-              Explore moments from Sri Lanka through breathtaking destinations, cultural experiences, and adventure trails.
+            <p style={{ color: "rgba(255,255,255,0.66)", marginBottom: "30px", fontSize: "13px" }}>
+              Explore the beauty of Sri Lanka through moments captured during our cruises. From spectacular landscapes to cultural experiences, each image tells a story of adventure, comfort, and unforgettable memories.
             </p>
 
             <div className="row g-3 g-md-4">
-              {galleryItems.map((image, index) => (
+              {currentItems.map((image, index) => (
                 <div className="col-6 col-md-4 col-xl-3" key={`${image}-${index}`}>
                   <article
                     style={{
@@ -102,55 +126,23 @@ const GalleryPage = () => {
                       border: "1px solid rgba(255,255,255,0.08)",
                     }}
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={image}
                       alt="Sri Lanka gallery"
                       style={{ width: "100%", height: "170px", objectFit: "cover", display: "block" }}
                     />
-
-                    {index === 0 && (
-                      <>
-                        <span
-                          style={{
-                            position: "absolute",
-                            top: "8px",
-                            right: "8px",
-                            fontSize: "9px",
-                            color: "#fff",
-                            background: "#FC0FC0",
-                            borderRadius: "20px",
-                            padding: "3px 8px",
-                            letterSpacing: "0.4px",
-                          }}
-                        >
-                          POPULAR
-                        </span>
-                        <div
-                          style={{
-                            position: "absolute",
-                            left: "10px",
-                            right: "10px",
-                            bottom: "8px",
-                            color: "#fff",
-                            textShadow: "0 2px 8px rgba(0,0,0,0.55)",
-                          }}
-                        >
-                          <h3 style={{ margin: "0 0 2px", fontSize: "12px", fontWeight: 600 }}>Ella Train Journey</h3>
-                          <p style={{ margin: 0, fontSize: "10px", opacity: 0.92 }}>
-                            One of the most scenic train rides in Asia.
-                          </p>
-                        </div>
-                      </>
-                    )}
                   </article>
                 </div>
               ))}
             </div>
 
-            <div className="d-flex justify-content-center align-items-center gap-2" style={{ marginTop: "32px" }}>
+            <div
+              className="d-flex justify-content-center align-items-center gap-2"
+              style={{ marginTop: "32px" }}
+            >
               <button
                 type="button"
+                onClick={handlePrev}
                 style={{
                   width: "26px",
                   height: "26px",
@@ -166,6 +158,7 @@ const GalleryPage = () => {
               </button>
               <button
                 type="button"
+                onClick={handleNext}
                 style={{
                   width: "26px",
                   height: "26px",

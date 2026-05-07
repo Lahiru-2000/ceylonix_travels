@@ -15,6 +15,7 @@ function navLinkIsActive(pathname, href) {
 const CeylonixHeader = ({ logoImage }) => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,22 +27,39 @@ const CeylonixHeader = ({ logoImage }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const navLinks = [
     { title: "Home", href: "/" },
     { title: "About", href: "/about-us" },
     { title: "Destinations", href: "/destinations" },
     { title: "Gallery", href: "/gallery" },
     { title: "Blog", href: "/blog" },
+    // { title: "Contact", href: "/contact" },
     // { title: "Packages", href: "/tour" },
   ];
 
   return (
     <header
       style={{
-        position: "absolute",
+        position: "fixed",
+        top: 0,
         width: "100%",
         zIndex: 100,
         padding: "22px 0",
+        backgroundColor: isScrolled ? "rgba(0, 0, 0, 0.8)" : "transparent",
+        transition: "background-color 0.3s ease",
       }}
     >
       <div className="ceylon-container d-flex justify-content-between align-items-center">
@@ -91,19 +109,6 @@ const CeylonixHeader = ({ logoImage }) => {
         </nav>
 
         <div className="d-flex align-items-center gap-2 gap-md-3 justify-content-between">
-          {/* <button
-            type="button"
-            className="d-none d-md-flex align-items-center justify-content-center border-0 rounded-circle"
-            style={{
-              width: 44,
-              height: 44,
-              background: "rgba(255,255,255,0.08)",
-              color: "#fff",
-            }}
-            aria-label="Search"
-          >
-            <HiMagnifyingGlass size={22} />
-          </button> */}
           <Link
             href="/contact"
             className="d-none d-md-inline-flex align-items-center rounded-pill text-decoration-none"
@@ -174,7 +179,6 @@ const CeylonixHeader = ({ logoImage }) => {
               className="d-flex justify-content-between align-items-center"
               style={{ padding: "20px" }}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={logoImage}
                 alt="Ceylonix"
@@ -260,8 +264,8 @@ const CeylonixHeader = ({ logoImage }) => {
                 background: "linear-gradient(to top, #01000B 80%, transparent)",
               }}
             >
-              <button
-                type="button"
+              <Link
+                href="/contact"
                 style={{
                   width: "100%",
                   padding: "14px",
@@ -275,11 +279,13 @@ const CeylonixHeader = ({ logoImage }) => {
                   justifyContent: "center",
                   alignItems: "center",
                   gap: "8px",
+                  textDecoration: "none",
                 }}
+                onClick={() => setIsMenuOpen(false)}
               >
-                Start Your Journey
+                Contact Us
                 <HiArrowUpRight size={18} />
-              </button>
+              </Link>
             </div>
           </motion.div>
         )}
