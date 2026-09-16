@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FaCheckCircle } from 'react-icons/fa';
 import { useLocale } from '../LanguageProvider';
@@ -79,9 +80,9 @@ const CeylonixAbout = ({ aboutImage }) => {
                 ))}
               </ul>
 
-              <button className="px-4 py-2 mt-2" style={{ color: '#FC0FC0', backgroundColor: 'white',borderRadius:"8px", border:"1px", borderColor:"#FC0FC0", font:"17px", fontWeight:"500" }}>
+              <Link href="/about-us" className="ceylon-btn px-4 py-2 mt-2 d-inline-block text-decoration-none" style={{ color: '#FC0FC0', backgroundColor: 'white',borderRadius:"8px", border:"1px", borderColor:"#FC0FC0", font:"17px", fontWeight:"500" }}>
                 {t('about.learnMore')}
-              </button>
+              </Link>
             </motion.div>
           </div>
         </div>

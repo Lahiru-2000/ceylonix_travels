@@ -1,0 +1,94 @@
+{
+  "posts": [
+    {
+      "slug": "top-10-places-to-visit-in-sri-lanka",
+      "title": "Top 10 Places You Must Visit in Sri Lanka",
+      "excerpt": "Discover the most iconic and breathtaking destinations across Sri Lanka, from cultural landmarks to scenic landscapes.",
+      "image": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1200&q=80",
+      "date": "18 Nov",
+      "author": "By Ceylonix Team",
+      "category": "Travel Guide",
+      "readTime": "6 min read",
+      "intro": "Sri Lanka packs ancient cities, tea hills, wildlife parks, and a coastline that changes character from west to east. This guide highlights ten places that belong on almost every first-time itinerary.",
+      "sections": [
+        {
+          "heading": "Start with the Cultural Triangle",
+          "body": "Sigiriya, Dambulla, and Anuradhapura give you rock fortresses, cave temples, and sacred cities in a compact loop. Climb early at Sigiriya, then keep Dambulla for the painted caves and Anuradhapura for a slower pilgrimage day among stupas and the Sri Maha Bodhi."
+        },
+        {
+          "heading": "Hill country and the south",
+          "body": "Kandy’s Tooth Temple and evening dance shows lead naturally into Nuwara Eliya tea estates and the Ella train. On the coast, Galle Fort, Unawatuna, Mirissa whale watching, and Yala safari complete a classic south-and-east finish."
+        },
+        {
+          "heading": "How to use this list",
+          "body": "You do not need all ten stops in one trip. Choose a cultural core, one hill-country stay, and one beach or safari, then let Ceylonix shape the driving days around that mix."
+        }
+      ],
+      "highlights": [
+        "Sigiriya, Dambulla, and Anuradhapura",
+        "Kandy, Ella, and Nuwara Eliya",
+        "Galle Fort, Yala, and the south coast"
+      ]
+    },
+    {
+      "slug": "hill-country-train-and-tea-trails",
+      "title": "Hill Country Train Journeys and Tea Trails",
+      "excerpt": "Ride through tea estates, waterfalls, and misty peaks on one of Asia’s most scenic rail routes.",
+      "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80",
+      "date": "12 Nov",
+      "author": "By Ceylonix Team",
+      "category": "Scenic Travel",
+      "readTime": "5 min read",
+      "intro": "The climb from Kandy toward Ella is the journey many travellers remember longest. Tea terraces, village stations, and cloud sitting on the ridges make the train itself a highlight, not just a transfer.",
+      "sections": [
+        {
+          "heading": "Which stretch to book",
+          "body": "The Nanu Oya to Ella section is the most photographed, with Nine Arch Bridge along the way. If seats are limited, a private transfer still lets you stop at Ramboda Falls, a tea factory, and Gregory Lake without losing the views."
+        },
+        {
+          "heading": "What to add around Ella",
+          "body": "Give Ella at least one full day after the train. Little Adams Peak at sunrise, Nine Arch Bridge on a timed walk, and Rawana Falls on the road down toward the south coast make a clean, unhurried loop."
+        },
+        {
+          "heading": "Practical tips",
+          "body": "Reserve seats when you can, carry a light jacket, and keep plans flexible if mist rolls in. Hill-country weather changes quickly, and that is part of the atmosphere."
+        }
+      ],
+      "highlights": [
+        "Nanu Oya to Ella scenic rail",
+        "Tea factory tasting stops",
+        "Ella hikes and Nine Arch Bridge"
+      ]
+    },
+    {
+      "slug": "cultural-triangle-travel-guide",
+      "title": "A Complete Cultural Triangle Guide",
+      "excerpt": "Plan temples, ruins, village visits, and wildlife days across Sigiriya, Dambulla, and Anuradhapura.",
+      "image": "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=1200&q=80",
+      "date": "05 Nov",
+      "author": "By Ceylonix Team",
+      "category": "Culture",
+      "readTime": "7 min read",
+      "intro": "The Cultural Triangle is where Sri Lanka’s oldest kingdoms still shape the landscape. With the right order, you can climb Sigiriya, walk Dambulla’s caves, and cover Anuradhapura without rushing the sacred sites.",
+      "sections": [
+        {
+          "heading": "A simple three-day flow",
+          "body": "Use Sigiriya or Dambulla as a base. Day one is Lion Rock at sunrise and a village tour. Day two is Dambulla Cave Temple and a Minneriya or Hurulu elephant safari. Day three is Anuradhapura’s eight sacred places, with modest dress and plenty of water."
+        },
+        {
+          "heading": "What first-time visitors forget",
+          "body": "Stone paths get hot by late morning, temple visits need covered shoulders and knees, and safari timing depends on the season. The Gathering around Minneriya is usually strongest from about July to October."
+        },
+        {
+          "heading": "Pair it with the rest of the island",
+          "body": "From the Triangle, most guests continue to Kandy and the hills, or drop south toward the coast. Either route works; the important part is not squeezing every ruin into a single day."
+        }
+      ],
+      "highlights": [
+        "Sigiriya sunrise climb",
+        "Dambulla cave temples",
+        "Anuradhapura sacred circuit and elephant safari"
+      ]
+    }
+  ]
+}

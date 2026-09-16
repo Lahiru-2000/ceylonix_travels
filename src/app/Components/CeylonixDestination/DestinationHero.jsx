@@ -1,6 +1,11 @@
+"use client";
 import React from "react";
+import { useLocale } from "../LanguageProvider";
 
-const DestinationHero = ({ image }) => {
+const DestinationHero = ({ image, title, currentPage }) => {
+  const { t } = useLocale();
+  const heroTitle = title || t("destPage.hero");
+  const pageLabel = currentPage || t("destPage.hero");
   return (
     <section style={{ position: "relative", height: "480px", overflow: "hidden" }}>
       <div
@@ -37,12 +42,12 @@ const DestinationHero = ({ image }) => {
           style={{
             margin: "0 0 20px 0",
             color: "#FFFFFF",
-            fontSize: "64px",
+            fontSize: heroTitle.length > 28 ? "42px" : "64px",
             fontWeight: 800,
             lineHeight: 1.1,
           }}
         >
-          Destination
+          {heroTitle}
         </h1>
         <div
           style={{
@@ -61,10 +66,25 @@ const DestinationHero = ({ image }) => {
               fontWeight: 500,
             }}
           >
-            Home
+            {t("common.home")}
           </a>
           <span style={{ color: "rgba(255,255,255,0.6)" }}>/</span>
-          <span style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>Destination</span>
+          <a
+            href="/destinations"
+            style={{
+              color: "#E91E8C",
+              textDecoration: "none",
+              fontWeight: 500,
+            }}
+          >
+            {t("destPage.hero")}
+          </a>
+          {pageLabel !== t("destPage.hero") && (
+            <>
+              <span style={{ color: "rgba(255,255,255,0.6)" }}>/</span>
+              <span style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>{pageLabel}</span>
+            </>
+          )}
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useLocale } from "../LanguageProvider";
 
@@ -45,9 +46,9 @@ const CeylonixCTA = ({ ctaImg }) => {
               }}
             />
             <div className="d-flex flex-wrap gap-3">
-              <button
-                type="button"
-                className="border-0 text-white fw-semibold px-4 py-2 "
+              <Link
+                href="/contact#inquiry"
+                className="ceylon-btn border-0 text-white fw-semibold px-4 py-2 text-decoration-none"
                 style={{
                   background: "#FC0FC0",
                   fontSize: "15px",
@@ -55,10 +56,10 @@ const CeylonixCTA = ({ ctaImg }) => {
                 }}
               >
                 {t("cta.sendInquiry")}
-              </button>
-              <button
-                type="button"
-                className="fw-semibold px-4 py-2 border-0"
+              </Link>
+              <Link
+                href="/contact"
+                className="ceylon-btn fw-semibold px-4 py-2 border-0 text-decoration-none"
                 style={{
                   borderRadius:"8px",
                   border:"1px",
@@ -69,7 +70,7 @@ const CeylonixCTA = ({ ctaImg }) => {
                 }}
               >
                 {t("cta.contactUs")}
-              </button>
+              </Link>
             </div>
           </div>
           <div

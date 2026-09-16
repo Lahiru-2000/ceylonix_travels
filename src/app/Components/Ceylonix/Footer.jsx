@@ -34,12 +34,12 @@ const CeylonixFooter = ({ logoImage }) => {
       <div
         className="ceylon-container"
         style={{
-          padding: "80px 20px 60px",
+          paddingTop: "72px",
+          paddingBottom: "48px",
         }}
       >
-        <div className="row gy-5 justify-content-between">
-          {/* LOGO CARD */}
-          <div className="col-12 col-md-6 col-xl-4">
+        <div className="row g-4 g-lg-5 align-items-start">
+          <div className="col-12 col-lg-4">
             <div className="footer-card">
               {logoImage && (
                 <img
@@ -50,21 +50,18 @@ const CeylonixFooter = ({ logoImage }) => {
               )}
 
               <p className="footer-description">
-                Ceylonix is a trusted Sri Lankan tour company dedicated
-                to delivering unforgettable travel experiences for
-                international visitors.
+                {t("footer.description")}
               </p>
             </div>
           </div>
 
-          {/* QUICK LINKS */}
-          <div className="col-6 col-md-6 col-xl-2 footer-mobile-center">
+          <div className="col-12 col-md-4 col-lg-2">
             <h5 className="footer-title">{t("footer.quickLinkTitle")}</h5>
 
             <ul className="footer-links">
               {quickLinks.map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} style={{ color: "rgba(255, 255, 255, 0.85)" }}>
+                  <Link href={item.href}>
                     {item.label}
                   </Link>
                 </li>
@@ -72,12 +69,10 @@ const CeylonixFooter = ({ logoImage }) => {
             </ul>
           </div>
 
-          {/* CONTACT */}
-          <div className="col-12 col-md-6 col-xl-3 footer-mobile-center">
+          <div className="col-12 col-md-4 col-lg-3">
             <h5 className="footer-title">{t("footer.contactTitle")}</h5>
 
             <div className="footer-contact-wrapper">
-              {/* EMAIL */}
               <div className="footer-contact-box">
                 <div className="footer-icon-box">
                   <HiOutlineMail color="#fff" size={20} />
@@ -85,13 +80,12 @@ const CeylonixFooter = ({ logoImage }) => {
 
                 <div>
                   <p className="footer-contact-label">{t("footer.emailLabel")}</p>
-                  <p className="footer-contact-value">
+                  <a href="mailto:info@ceylonix.com" className="footer-contact-value">
                     info@ceylonix.com
-                  </p>
+                  </a>
                 </div>
               </div>
 
-              {/* PHONE */}
               <div className="footer-contact-box">
                 <div className="footer-icon-box">
                   <HiOutlinePhone color="#fff" size={20} />
@@ -99,16 +93,15 @@ const CeylonixFooter = ({ logoImage }) => {
 
                 <div>
                   <p className="footer-contact-label">{t("footer.mobileLabel")}</p>
-                  <p className="footer-contact-value">
+                  <a href="tel:+94776576689" className="footer-contact-value">
                     077 657 6689
-                  </p>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* NEWSLETTER */}
-          <div className="col-12 col-md-6 col-xl-3 footer-mobile-center">
+          <div className="col-12 col-md-4 col-lg-3">
             <div className="footer-newsletter">
               <h5 className="footer-title">
                 {t("footer.newsletterTitle")}
@@ -147,13 +140,13 @@ const CeylonixFooter = ({ logoImage }) => {
 
             <div className="footer-socials">
               {[
-                FaGithub,
-                FaFacebookF,
-                FaTwitter,
-                FaGoogle,
-                FaInstagram,
-              ].map((Icon, idx) => (
-                <Link key={idx} href="#">
+                { Icon: FaFacebookF, href: "https://www.facebook.com/", label: "Facebook" },
+                { Icon: FaInstagram, href: "https://www.instagram.com/", label: "Instagram" },
+                { Icon: FaTwitter, href: "https://twitter.com/", label: "Twitter" },
+                { Icon: FaGoogle, href: "https://www.google.com/", label: "Google" },
+                { Icon: FaGithub, href: "https://github.com/", label: "GitHub" },
+              ].map(({ Icon, href, label }) => (
+                <Link key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}>
                   <Icon size={15} />
                 </Link>
               ))}
@@ -168,10 +161,9 @@ const CeylonixFooter = ({ logoImage }) => {
           background: #05073c;
           border: 10px solid rgba(55, 57, 126, 0.2);
           border-radius: 28px;
-          padding: 35px 28px;
+          padding: 32px 24px;
           text-align: center;
-          max-width: 380px;
-          margin: 0 auto;
+          width: 100%;
           height: 100%;
         }
 
@@ -193,7 +185,7 @@ const CeylonixFooter = ({ logoImage }) => {
           color: #fff;
           font-size: 18px;
           font-weight: 600;
-          margin-bottom: 30px;
+          margin-bottom: 22px;
         }
 
         .footer-links {
@@ -203,35 +195,43 @@ const CeylonixFooter = ({ logoImage }) => {
         }
 
         .footer-links li {
-          margin-bottom: 18px;
+          margin-bottom: 14px;
         }
 
-        .footer-links a {
+        .footer-links :global(a) {
           color: rgba(255, 255, 255, 0.85);
           text-decoration: none;
           font-size: 15px;
-          transition: 0.3s;
+          display: inline-block;
+          transition: color 0.22s ease, transform 0.22s ease;
         }
 
-        .footer-links a:hover {
-          color: #ff00c7;
+        .footer-links :global(a:hover) {
+          color: #FC0FC0;
+          transform: translateX(4px);
         }
 
         .footer-contact-wrapper {
           display: flex;
           flex-direction: column;
-          gap: 18px;
+          gap: 14px;
         }
 
         .footer-contact-box {
           display: flex;
           align-items: center;
-          gap: 14px;
+          gap: 12px;
           background: rgba(255, 255, 255, 0.06);
           border-radius: 12px;
-          padding: 14px;
+          padding: 12px;
           width: 100%;
-          max-width: 260px;
+          min-width: 0;
+          transition: background-color 0.22s ease, transform 0.22s ease;
+        }
+
+        .footer-contact-box:hover {
+          background: rgba(252, 15, 192, 0.14);
+          transform: translateY(-2px);
         }
 
         .footer-icon-box {
@@ -254,30 +254,44 @@ const CeylonixFooter = ({ logoImage }) => {
         .footer-contact-value {
           margin: 0;
           color: #fff;
-          font-size: 15px;
+          font-size: 14px;
+          text-decoration: none;
+          display: block;
+          white-space: nowrap;
+          transition: color 0.22s ease;
+        }
+
+        .footer-contact-value:hover {
+          color: #FC0FC0;
         }
 
         .footer-newsletter {
-          max-width: 350px;
+          width: 100%;
+          max-width: 100%;
+          min-width: 0;
         }
 
         .footer-newsletter-text {
           color: rgba(255, 255, 255, 0.7);
           font-size: 14px;
           line-height: 26px;
-          margin-bottom: 24px;
+          margin-bottom: 20px;
         }
 
         .footer-form {
           display: flex;
-          align-items: center;
+          align-items: stretch;
           background: #fff;
           border-radius: 12px;
           overflow: hidden;
+          width: 100%;
+          min-width: 0;
         }
 
         .footer-form input {
-          flex: 1;
+          flex: 1 1 auto;
+          min-width: 0;
+          width: 100%;
           border: none;
           outline: none;
           padding: 14px 16px;
@@ -289,16 +303,23 @@ const CeylonixFooter = ({ logoImage }) => {
           border: none;
           background: #fff;
           color: #111;
-          padding: 0 24px;
+          padding: 0 18px;
           min-height: 52px;
           font-size: 14px;
           font-weight: 600;
           cursor: pointer;
+          flex-shrink: 0;
+          transition: color 0.22s ease, background-color 0.22s ease;
+        }
+
+        .footer-form button:hover {
+          color: #FC0FC0;
+          background: #f7f7f7;
         }
 
         .footer-bottom {
           border-top: 1px solid rgba(255, 255, 255, 0.08);
-          padding: 18px 20px;
+          padding: 18px 0;
         }
 
         .footer-bottom-content {
@@ -306,6 +327,7 @@ const CeylonixFooter = ({ logoImage }) => {
           justify-content: space-between;
           align-items: center;
           gap: 16px;
+          flex-wrap: wrap;
         }
 
         .footer-bottom-content p {
@@ -317,9 +339,10 @@ const CeylonixFooter = ({ logoImage }) => {
         .footer-socials {
           display: flex;
           gap: 12px;
+          flex-wrap: wrap;
         }
 
-        .footer-socials a {
+        .footer-socials :global(a) {
           width: 38px;
           height: 38px;
           border-radius: 50%;
@@ -329,24 +352,29 @@ const CeylonixFooter = ({ logoImage }) => {
           justify-content: center;
           color: #fff;
           text-decoration: none;
+          transition: transform 0.22s ease, background-color 0.22s ease;
         }
 
-        @media (max-width: 767px) {
-          .footer-mobile-center {
-            text-align: center;
-          }
+        .footer-socials :global(a:hover) {
+          transform: translateY(-2px);
+          background: #FC0FC0;
+        }
 
-          .footer-links {
-            display: inline-block;
-            text-align: left;
-          }
-
-          .footer-contact-wrapper {
-            align-items: center;
+        @media (max-width: 991px) {
+          .footer-card {
+            max-width: 520px;
+            margin: 0 auto;
           }
 
           .footer-newsletter {
-            margin: 0 auto;
+            max-width: 100%;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .footer-title,
+          .footer-newsletter-text {
+            text-align: left;
           }
 
           .footer-bottom-content {
@@ -355,9 +383,10 @@ const CeylonixFooter = ({ logoImage }) => {
           }
         }
 
-        @media (max-width: 576px) {
+        @media (max-width: 575px) {
           .footer-card {
-            padding: 28px 20px;
+            padding: 24px 18px;
+            border-width: 6px;
           }
 
           .footer-logo {
@@ -373,20 +402,14 @@ const CeylonixFooter = ({ logoImage }) => {
             flex-direction: column;
             background: transparent;
             gap: 12px;
+            overflow: visible;
           }
 
-          .footer-form input {
-            width: 100%;
-            border-radius: 12px;
-          }
-
+          .footer-form input,
           .footer-form button {
             width: 100%;
             border-radius: 12px;
-          }
-
-          .footer-contact-box {
-            max-width: 100%;
+            background: #fff;
           }
         }
       `}</style>

@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { FaPlay } from "react-icons/fa";
 
 const DestinationExperience = ({ image }) => {
@@ -11,32 +12,26 @@ const DestinationExperience = ({ image }) => {
             Unforgettable Travel Experiences Await You
           </h2>
           <div className="d-flex justify-content-center gap-2">
-            <button
-              type="button"
-              style={{
+            <Link href="/destinations" className="ceylon-btn text-decoration-none" style={{
                 border: "none",
                 borderRadius: "6px",
                 fontSize: "13px",
                 padding: "6px 12px",
                 background: "#FC0FC0",
                 color: "#fff",
-              }}
-            >
+              }}>
               Scenic
-            </button>
-            <button
-              type="button"
-              style={{
+            </Link>
+            <Link href="/destinations" className="ceylon-btn text-decoration-none" style={{
                 border: "1px solid #FC0FC0",
                 borderRadius: "6px",
                 fontSize: "13px",
                 padding: "6px 12px",
                 background: "#fff",
                 color: "#FC0FC0",
-              }}
-            >
+              }}>
               Cultural
-            </button>
+            </Link>
           </div>
         </div>
         <div style={{ borderRadius: "18px", overflow: "hidden", position: "relative", boxShadow: "0 20px 34px rgba(0,0,0,0.4)" }}>

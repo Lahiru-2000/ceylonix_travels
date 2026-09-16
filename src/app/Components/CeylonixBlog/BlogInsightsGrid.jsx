@@ -1,23 +1,26 @@
+"use client";
 import React from "react";
+import Link from "next/link";
+import { useLocale } from "../LanguageProvider";
 
 const BlogInsightsGrid = ({ posts }) => {
+  const { t } = useLocale();
   return (
     <section style={{ background: "#0C111D", padding: "70px 0 80px" }}>
       <div className="ceylon-container">
         <span className="ceylon-subtitle" style={{ marginBottom: "6px" }}>
-          Travel Insights
+          {t("blogPage.subtitle")}
         </span>
         <h2 className="ceylon-title text-white mb-2" style={{ fontSize: "52px" }}>
-          Stories, Tips and Travel Guides
+          {t("blogPage.title")}
         </h2>
         <p style={{ color: "rgba(255,255,255,0.66)", marginBottom: "30px", fontSize: "13px", maxWidth: "1000px" }}>
-          Explore Sri Lanka through our travel stories, expert tips, and destination guides. Get inspired and plan your
-          perfect journey with insights from our local travel experts.
+          {t("blogPage.description")}
         </p>
 
         <div className="row g-4">
-          {posts.map((card, index) => (
-            <div className="col-md-6 col-xl-4" key={`${card.title}-${index}`}>
+          {posts.map((card) => (
+            <div className="col-md-6 col-xl-4" key={card.slug}>
               <article
                 style={{
                   background: "#FFFFFF",
@@ -56,19 +59,17 @@ const BlogInsightsGrid = ({ posts }) => {
                   </h3>
                   <p style={{ margin: "0 0 9px", color: "#667085", fontSize: "12px", lineHeight: 1.45 }}>{card.excerpt}</p>
 
-                  <button
-                    type="button"
+                  <Link
+                    href={`/blog/${card.slug}`}
+                    className="ceylon-btn text-decoration-none"
                     style={{
-                      border: "none",
-                      background: "transparent",
                       color: "#FC0FC0",
-                      padding: 0,
                       fontWeight: 600,
                       fontSize: "12px",
                     }}
                   >
-                    Read More <span style={{ marginLeft: "3px" }}>→</span>
-                  </button>
+                    {t("common.readMore")} <span style={{ marginLeft: "3px" }}>→</span>
+                  </Link>
                 </div>
               </article>
             </div>

@@ -1,6 +1,9 @@
+"use client";
 import React from "react";
+import { useLocale } from "../LanguageProvider";
 
 const AboutHero = ({ image }) => {
+  const { t } = useLocale();
   return (
     <section
       style={{
@@ -48,7 +51,7 @@ const AboutHero = ({ image }) => {
             lineHeight: 1.1,
           }}
         >
-          About Us
+          {t("aboutPage.hero")}
         </h1>
         <div
           style={{
@@ -67,10 +70,10 @@ const AboutHero = ({ image }) => {
               fontWeight: 500,
             }}
           >
-            Home
+            {t("common.home")}
           </a>
           <span style={{ color: "rgba(255,255,255,0.6)" }}>/</span>
-          <span style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>About Us</span>
+          <span style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>{t("aboutPage.hero")}</span>
         </div>
       </div>
     </section>

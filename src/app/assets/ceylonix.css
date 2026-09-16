@@ -37,7 +37,7 @@ body {
 
 @media (max-width: 767px) {
   .ceylon-container {
-    padding: 0 15px;
+    padding: 0 20px;
   }
 }
 
@@ -385,4 +385,100 @@ body {
 
 .ceylon-dest-card-hover:hover .dest-img {
   transform: scale(1.05);
+}
+
+.hero-btn-group a,
+.ceylon-cta-copy a {
+  cursor: pointer;
+  transition: transform 0.22s ease, filter 0.22s ease, box-shadow 0.22s ease;
+  display: inline-block;
+}
+
+.hero-btn-group a:hover,
+.ceylon-cta-copy a:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 8px 20px rgba(252, 15, 192, 0.22);
+}
+
+button,
+.ceylon-btn {
+  cursor: pointer;
+  transition: transform 0.22s ease, filter 0.22s ease, box-shadow 0.22s ease,
+    background-color 0.22s ease, color 0.22s ease, opacity 0.22s ease, border-color 0.22s ease;
+}
+
+button:not(:disabled):hover,
+.ceylon-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 8px 20px rgba(252, 15, 192, 0.22);
+}
+
+button:not(:disabled):active,
+.ceylon-btn:active {
+  transform: translateY(0);
+  filter: brightness(0.98);
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.ceylon-text-link {
+  transition: color 0.22s ease, opacity 0.22s ease;
+}
+
+.ceylon-text-link:hover {
+  color: #FC0FC0 !important;
+}
+
+.ceylon-nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+  opacity: 0.78;
+  padding-bottom: 6px;
+  border-bottom: 3px solid transparent;
+  transition: color 0.22s ease, opacity 0.22s ease, border-color 0.22s ease;
+}
+
+.ceylon-nav-link:hover {
+  color: #FC0FC0;
+  opacity: 1;
+  border-bottom-color: #FC0FC0;
+}
+
+.ceylon-nav-link.is-active {
+  font-weight: 700;
+  opacity: 1;
+  border-bottom-color: #FC0FC0;
+}
+
+.ceylon-mobile-nav-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 3px solid transparent;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+  transition: background-color 0.22s ease, border-color 0.22s ease, color 0.22s ease;
+}
+
+.ceylon-mobile-nav-link:hover {
+  background: rgba(252, 15, 192, 0.16);
+  color: #FC0FC0;
+  border-left-color: #FC0FC0;
+}
+
+.ceylon-mobile-nav-link.is-active {
+  background: rgba(252, 15, 192, 0.12);
+  border-left-color: #FC0FC0;
+  font-weight: 700;
 }

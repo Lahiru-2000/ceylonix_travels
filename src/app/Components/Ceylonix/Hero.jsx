@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { useLocale } from '../LanguageProvider';
 
@@ -56,7 +57,7 @@ const CeylonixHero = ({ heroImage }) => {
           </p>
 
           <div className="d-flex align-items-center gap-3 hero-btn-group">
-            <button style={{
+            <Link href="/#packages" className="ceylon-btn text-decoration-none" style={{
               background: '#FC0FC0',
               color: 'white',
               border: 'none',
@@ -69,8 +70,8 @@ const CeylonixHero = ({ heroImage }) => {
               boxShadow: '0 4px 15px #A5A3AE4D'
             }}>
               {t("hero.buttonPackages")}
-            </button>
-            <button style={{
+            </Link>
+            <Link href="/contact#inquiry" className="ceylon-btn text-decoration-none" style={{
               background: '#FFFFFF',
               color: '#FC0FC0',
               border: 'none',
@@ -83,7 +84,7 @@ const CeylonixHero = ({ heroImage }) => {
               boxShadow: '0 1px 4px #FC0FC0'
             }}>
               {t("hero.buttonRequest")}
-            </button>
+            </Link>
           </div>
         </motion.div>
       </div>

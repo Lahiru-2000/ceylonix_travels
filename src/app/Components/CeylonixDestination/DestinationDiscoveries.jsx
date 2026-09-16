@@ -1,15 +1,18 @@
+"use client";
 import React from "react";
+import { useLocale } from "../LanguageProvider";
 
 const DestinationDiscoveries = ({ posts }) => {
+  const { t } = useLocale();
   return (
     <section style={{ background: "#0C111D", padding: "0 0 95px",  }}>
       <div className="ceylon-container" style={{marginTop: "50px" }}>
-        <span className="ceylon-subtitle">Featured Tours</span>
+        <span className="ceylon-subtitle">{t("destPage.featuredSubtitle")}</span>
         <h2 className="ceylon-title text-white mb-3" style={{ fontSize: "42px" }}>
-          Unforgettable Travel Discoveries
+          {t("destPage.featuredTitle")}
         </h2>
         <p style={{ color: "rgba(255,255,255,0.67)", marginBottom: "24px", fontSize: "14px" }}>
-          Handpicked tours designed to give you the best Sri Lankan experience.
+          {t("destPage.featuredText")}
         </p>
         <div className="row g-4">
           {posts.map((post, index) => (

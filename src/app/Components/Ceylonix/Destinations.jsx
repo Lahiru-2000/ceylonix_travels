@@ -23,7 +23,7 @@ const CeylonixDestinations = ({ destinations }) => {
           </div>
           <Link
             href="/destinations"
-            className="text-decoration-none fw-semibold px-4 py-3 rounded-pill flex-shrink-0"
+            className="ceylon-btn text-decoration-none fw-semibold px-4 py-3 rounded-pill flex-shrink-0"
             style={{
               background: "#ffffff",
               color: "#e91e63",
@@ -36,8 +36,9 @@ const CeylonixDestinations = ({ destinations }) => {
 
         <div className="row g-4">
           {destinations.map((dest, index) => (
-            <div key={dest.title} className="col-lg-3 col-md-6">
-              <motion.div
+            <div key={dest.slug} className="col-lg-3 col-md-6">
+              <Link href={`/destinations/${dest.slug}`} className="text-decoration-none d-block">
+                <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -74,8 +75,7 @@ const CeylonixDestinations = ({ destinations }) => {
                     {dest.subtitle}
                   </p>
                 </div>
-                {index > 0 && (
-                  <div
+                <div
                     className="position-absolute d-flex align-items-center justify-content-center rounded-circle"
                     style={{
                       width: 44,
@@ -88,8 +88,8 @@ const CeylonixDestinations = ({ destinations }) => {
                   >
                     <HiArrowUpRight size={20} style={{ color: "#e91e63" }} />
                   </div>
-                )}
-              </motion.div>
+                </motion.div>
+              </Link>
             </div>
           ))}
         </div>

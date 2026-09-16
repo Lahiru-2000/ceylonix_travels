@@ -33,12 +33,11 @@ export default function LanguageProvider({ children }) {
 
   const t = (key) => {
     const path = Array.isArray(key) ? key : String(key).split(".");
-    let result = translations[locale];
-    for (const segment of path) {
-      if (result == null) return key;
-      result = result[segment];
-    }
-    return result == null ? key : result;
+    const read = (source) => path.reduce((value, segment) => (value == null ? value : value[segment]), source);
+    const localized = read(translations[locale]);
+    if (localized != null) return localized;
+    const fallback = read(translations.en);
+    return fallback == null ? key : fallback;
   };
 
   const value = useMemo(

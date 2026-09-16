@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CeylonixHeader from "../../Components/Ceylonix/Header";
 import CeylonixFooter from "../../Components/Ceylonix/Footer";
 import CeylonixCTA from "../../Components/Ceylonix/CTA";
+import { useLocale } from "../../Components/LanguageProvider";
 
 const logoPath = "/assets/images/ceylonix/logoceylonix.png";
 const heroBg = "/assets/images/ceylonix/gallery-bg.jpg";
@@ -34,8 +35,12 @@ const galleryItems = [
   "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?auto=format&fit=crop&w=900&q=80",
 ];
 
+const lightboxSrc = (url) => url.replace("w=900", "w=1600");
+
 const GalleryPage = () => {
+  const { t } = useLocale();
   const [currentPage, setCurrentPage] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const itemsPerPage = 16;
 
   const handleNext = () => {
@@ -52,6 +57,38 @@ const GalleryPage = () => {
 
   const startIndex = currentPage * itemsPerPage;
   const currentItems = galleryItems.slice(startIndex, startIndex + itemsPerPage);
+  const selectedImage = selectedIndex !== null ? galleryItems[selectedIndex] : null;
+
+  const closeLightbox = () => setSelectedIndex(null);
+
+  const showPrevious = () => {
+    setSelectedIndex((current) =>
+      current === null ? current : (current - 1 + galleryItems.length) % galleryItems.length
+    );
+  };
+
+  const showNext = () => {
+    setSelectedIndex((current) =>
+      current === null ? current : (current + 1) % galleryItems.length
+    );
+  };
+
+  useEffect(() => {
+    if (selectedIndex === null) return undefined;
+
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowLeft") showPrevious();
+      if (event.key === "ArrowRight") showNext();
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [selectedIndex]);
 
   return (
     <div style={{ background: "var(--ceylon-bg)", minHeight: "100vh" }}>
@@ -90,14 +127,14 @@ const GalleryPage = () => {
             }}
           >
             <h1 style={{ margin: "0 0 20px 0", color: "#fff", fontWeight: 800, fontSize: "64px", lineHeight: 1.1 }}>
-              Gallery
+              {t("galleryPage.hero")}
             </h1>
             <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "16px", color: "rgba(255,255,255,0.9)" }}>
               <a href="/" style={{ color: "#E91E8C", textDecoration: "none", fontWeight: 500 }}>
-                Home
+                {t("common.home")}
               </a>
               <span style={{ color: "rgba(255,255,255,0.6)" }}>/</span>
-              <span style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>Gallery</span>
+              <span style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>{t("galleryPage.hero")}</span>
             </div>
           </div>
         </section>
@@ -105,33 +142,39 @@ const GalleryPage = () => {
         <section style={{ background: "#060A24", padding: "70px 0 80px" }}>
           <div className="ceylon-container">
             <span className="ceylon-subtitle" style={{ marginBottom: "6px" }}>
-              Featured Journeys
+              {t("galleryPage.subtitle")}
             </span>
             <h2 className="ceylon-title text-white mb-2" style={{ fontSize: "52px" }}>
-              Unforgettable Travel Discoveries
+              {t("galleryPage.title")}
             </h2>
             <p style={{ color: "rgba(255,255,255,0.66)", marginBottom: "30px", fontSize: "13px" }}>
-              Explore the beauty of Sri Lanka through moments captured during our cruises. From spectacular landscapes to cultural experiences, each image tells a story of adventure, comfort, and unforgettable memories.
+              {t("galleryPage.description")}
             </p>
 
             <div className="row g-3 g-md-4">
               {currentItems.map((image, index) => (
-                <div className="col-6 col-md-4 col-xl-3" key={`${image}-${index}`}>
-                  <article
+                <div className="col-6 col-md-4 col-xl-3" key={`${image}-${startIndex + index}`}>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedIndex(startIndex + index)}
+                    aria-label={`View gallery photo ${startIndex + index + 1}`}
                     style={{
+                      width: "100%",
+                      padding: 0,
                       borderRadius: "10px",
                       overflow: "hidden",
                       background: "#0A1130",
                       position: "relative",
                       border: "1px solid rgba(255,255,255,0.08)",
+                      cursor: "pointer",
                     }}
                   >
                     <img
                       src={image}
-                      alt="Sri Lanka gallery"
+                      alt={`Sri Lanka gallery ${startIndex + index + 1}`}
                       style={{ width: "100%", height: "170px", objectFit: "cover", display: "block" }}
                     />
-                  </article>
+                  </button>
                 </div>
               ))}
             </div>
@@ -180,6 +223,107 @@ const GalleryPage = () => {
       </main>
 
       <CeylonixFooter logoImage="/assets/images/ceylonix/footerLogo.png" />
+
+      {selectedImage && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Full size gallery photo"
+          onClick={closeLightbox}
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 300,
+            background: "rgba(1, 0, 11, 0.92)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "20px",
+          }}
+        >
+          <button
+            type="button"
+            onClick={closeLightbox}
+            aria-label="Close photo"
+            style={{
+              position: "absolute",
+              top: "18px",
+              right: "18px",
+              width: "42px",
+              height: "42px",
+              border: "none",
+              borderRadius: "50%",
+              background: "rgba(255,255,255,0.12)",
+              color: "#fff",
+              fontSize: "22px",
+              cursor: "pointer",
+              zIndex: 2,
+            }}
+          >
+            ✕
+          </button>
+          <button
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation();
+              showPrevious();
+            }}
+            aria-label="Previous photo"
+            style={{
+              position: "absolute",
+              left: "16px",
+              width: "42px",
+              height: "42px",
+              border: "none",
+              borderRadius: "50%",
+              background: "#FC0FC0",
+              color: "#fff",
+              fontSize: "22px",
+              cursor: "pointer",
+              zIndex: 2,
+            }}
+          >
+            ‹
+          </button>
+          <img
+            src={lightboxSrc(selectedImage)}
+            alt={`Sri Lanka gallery ${selectedIndex + 1}`}
+            onClick={(event) => event.stopPropagation()}
+            style={{
+              maxWidth: "min(1100px, 100%)",
+              maxHeight: "calc(100vh - 48px)",
+              width: "auto",
+              height: "auto",
+              objectFit: "contain",
+              borderRadius: "12px",
+              boxShadow: "0 24px 64px rgba(0,0,0,0.45)",
+            }}
+          />
+          <button
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation();
+              showNext();
+            }}
+            aria-label="Next photo"
+            style={{
+              position: "absolute",
+              right: "16px",
+              width: "42px",
+              height: "42px",
+              border: "none",
+              borderRadius: "50%",
+              background: "#FC0FC0",
+              color: "#fff",
+              fontSize: "22px",
+              cursor: "pointer",
+              zIndex: 2,
+            }}
+          >
+            ›
+          </button>
+        </div>
+      )}
     </div>
   );
 };

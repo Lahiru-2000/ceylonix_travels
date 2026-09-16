@@ -1,6 +1,11 @@
+"use client";
 import React from "react";
+import { useLocale } from "../LanguageProvider";
 
-const BlogHero = ({ image }) => {
+const BlogHero = ({ image, title, currentPage }) => {
+  const { t } = useLocale();
+  const heroTitle = title || t("blogPage.hero");
+  const pageLabel = currentPage || t("blogPage.hero");
   return (
     <section style={{ position: "relative", height: "480px", overflow: "hidden" }}>
       <div
@@ -37,12 +42,12 @@ const BlogHero = ({ image }) => {
           style={{
             margin: "0 0 20px 0",
             color: "#FFFFFF",
-            fontSize: "64px",
+            fontSize: heroTitle.length > 28 ? "36px" : "64px",
             fontWeight: 800,
             lineHeight: 1.1,
           }}
         >
-          Blog
+          {heroTitle}
         </h1>
         <div
           style={{
@@ -51,6 +56,8 @@ const BlogHero = ({ image }) => {
             gap: "8px",
             fontSize: "16px",
             color: "rgba(255,255,255,0.9)",
+            flexWrap: "wrap",
+            justifyContent: "center",
           }}
         >
           <a
@@ -61,10 +68,25 @@ const BlogHero = ({ image }) => {
               fontWeight: 500,
             }}
           >
-            Home
+            {t("common.home")}
           </a>
           <span style={{ color: "rgba(255,255,255,0.6)" }}>/</span>
-          <span style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>Blog</span>
+          <a
+            href="/blog"
+            style={{
+              color: "#E91E8C",
+              textDecoration: "none",
+              fontWeight: 500,
+            }}
+          >
+            {t("blogPage.hero")}
+          </a>
+          {pageLabel !== t("blogPage.hero") && (
+            <>
+              <span style={{ color: "rgba(255,255,255,0.6)" }}>/</span>
+              <span style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>{pageLabel}</span>
+            </>
+          )}
         </div>
       </div>
     </section>

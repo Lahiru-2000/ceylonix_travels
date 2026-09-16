@@ -70,6 +70,7 @@ const CeylonixHeader = ({ logoImage }) => {
             alt="Ceylonix"
             style={{
               width: "238px",
+              maxWidth: "min(238px, calc(100vw - 96px))",
               height: "32px",
               objectFit: "contain",
             }}
@@ -88,17 +89,7 @@ const CeylonixHeader = ({ logoImage }) => {
                   <Link
                     href={link.href}
                     aria-current={active ? "page" : undefined}
-                    style={{
-                      color: "#ffffff",
-                      fontWeight: active ? 700 : 500,
-                      textDecoration: "none",
-                      fontSize: "17px",
-                      opacity: active ? 1 : 0.75,
-                      paddingBottom: "6px",
-                      borderBottom: active
-                        ? "3px solid #FC0FC0"
-                        : "3px solid transparent",
-                    }}
+                    className={`ceylon-nav-link${active ? " is-active" : ""}`}
                   >
                     {link.title}
                   </Link>
@@ -131,7 +122,7 @@ const CeylonixHeader = ({ logoImage }) => {
 
           <Link
             href="/contact"
-            className="d-none d-md-inline-flex align-items-center rounded-pill text-decoration-none"
+            className="ceylon-btn d-none d-md-inline-flex align-items-center rounded-pill text-decoration-none"
             style={{
               border: navLinkIsActive(pathname, "/contact") ? "none" : "1px solid #ffffff",
               background: navLinkIsActive(pathname, "/contact") ? "#ffffff" : "transparent",
@@ -251,23 +242,7 @@ const CeylonixHeader = ({ logoImage }) => {
                         href={link.href}
                         aria-current={active ? "page" : undefined}
                         onClick={() => setIsMenuOpen(false)}
-                        style={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                          padding: "14px 16px",
-                          borderRadius: "12px",
-                          background: active
-                            ? "rgba(252, 15, 192, 0.12)"
-                            : "rgba(255,255,255,0.04)",
-                          borderLeft: active
-                            ? "3px solid #FC0FC0"
-                            : "3px solid transparent",
-                          color: "white",
-                          textDecoration: "none",
-                          fontSize: "17px",
-                          fontWeight: active ? 700 : 600,
-                        }}
+                        className={`ceylon-mobile-nav-link${active ? " is-active" : ""}`}
                       >
                         {link.title}
                         <HiArrowUpRight size={18} style={{ opacity: 0.6 }} />
@@ -306,6 +281,7 @@ const CeylonixHeader = ({ logoImage }) => {
 
               <Link
                 href="/contact"
+                className="ceylon-btn text-decoration-none"
                 style={{
                   width: "100%",
                   padding: "14px",

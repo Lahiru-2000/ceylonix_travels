@@ -1,15 +1,13 @@
 "use client";
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FaCheckCircle } from 'react-icons/fa';
+import { useLocale } from '../LanguageProvider';
 
 const CeylonixAbout = ({ aboutImage }) => {
-  const features = [
-    { title: 'Easy & Hassle-Free Booking', text: 'We make the process simple, fast, and convenient for international travelers.' },
-    { title: 'Personalized Travel Support', text: 'Every journey is handled with care to match your expectations.' },
-    { title: 'Experienced Local Experts', text: 'Our guides bring deep knowledge and friendly service to every trip.' },
-    { title: 'High Quality Service Standards', text: 'We focus on comfort, safety, and customer satisfaction.' }
-  ];
+  const { t } = useLocale();
+  const features = t("aboutPage.features") || [];
 
   return (
     <section className="ceylon-about ceylon-section" style={{
@@ -59,17 +57,15 @@ const CeylonixAbout = ({ aboutImage }) => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <span className="ceylon-subtitle">Get About Us</span>
+              <span className="ceylon-subtitle">{t("aboutPage.subtitle")}</span>
               <h2 className="ceylon-title text-white" style={{  fontWeight: 600, fontStyle: 'semibold' }}>
                 
-                We Are Dedicated To Creating The Best Travel Experiences In Sri Lanka
+                {t("aboutPage.title")}
               </h2>
               <p className="text-white-100 mb-4" style={{ fontSize: '15px' }}>
-                At Ceylonix, we are passionate about delivering unforgettable travel experiences for visitors from around the world. 
-                With deep local expertise and a commitment to quality service, we ensure every journey is smooth, comfortable, 
-                and filled with meaningful moments.
+                {t("aboutPage.p1")}
                 <br/><br/>
-                From cultural landmarks to breathtaking natural beauty, we carefully plan each trip to give you a complete and authentic Sri Lankan experience.
+                {t("aboutPage.p2")}
               </p>
 
               <hr style={{ color: 'white', width: '100%', height: '1px', borderRadius: '5px' }} />
@@ -86,7 +82,7 @@ const CeylonixAbout = ({ aboutImage }) => {
                 ))}
               </ul>
 
-              <button className="px-4 py-2 mt-2" style={{ color: '#FC0FC0', backgroundColor: 'white',borderRadius:"8px", border:"2px", borderColor:"#FC0FC0", font:"17px", fontWeight:"500" }}>Discover More</button>
+              <Link href="/destinations" className="ceylon-btn px-4 py-2 mt-2 d-inline-block text-decoration-none" style={{ color: '#FC0FC0', backgroundColor: 'white',borderRadius:"8px", border:"2px", borderColor:"#FC0FC0", font:"17px", fontWeight:"500" }}>{t("aboutPage.discoverMore")}</Link>
             </motion.div>
           </div>
         </div>

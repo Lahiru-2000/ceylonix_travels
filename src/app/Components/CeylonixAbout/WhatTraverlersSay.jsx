@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaStar } from "react-icons/fa";
 import { HiChevronUp, HiChevronDown } from "react-icons/hi2";
+import { useLocale } from "../LanguageProvider";
 
 const reviews = [
   {
@@ -32,6 +33,7 @@ const reviews = [
 ];
 
 const CeylonixTestimonials = ({ userImg }) => {
+  const { t } = useLocale();
   const [i, setI] = useState(0);
   const r = reviews[i];
   const canPrev = i > 0;
@@ -65,8 +67,8 @@ const CeylonixTestimonials = ({ userImg }) => {
           </div>
 
           <div className="col-lg-8">
-            <span className="ceylon-subtitle text-white d-block mb-2">Testimonials</span>
-            <h2 className="ceylon-title text-white mb-4 pt-2" style={{font:"60px"}}>Travelers Love Our Service</h2>
+            <span className="ceylon-subtitle text-white d-block mb-2">{t("testimonials.sectionSubtitle")}</span>
+            <h2 className="ceylon-title text-white mb-4 pt-2" style={{font:"60px"}}>{t("testimonials.loveTitle")}</h2>
 
             <div className="d-flex flex-column flex-lg-row align-items-stretch gap-3 gap-lg-4">
               <div className="flex-grow-1 min-w-0">

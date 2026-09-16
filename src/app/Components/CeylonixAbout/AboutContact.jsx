@@ -1,27 +1,13 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaCheck } from "react-icons/fa";
-const features = [
-  {
-    title: "Most Adventurous Tours",
-    text: "Experience thrilling destinations and unique travel moments.",
-  },
-  {
-    title: "Real Local Experiences",
-    text: "Discover Sri Lanka beyond typical tourist paths.",
-  },
-  // {
-  //   title: "Personalized Service",
-  //   text: "Every journey is tailored to your needs and preferences.",
-  // },
-  // {
-  //   title: "24/7 Support",
-  //   text: "We're always here to assist you throughout your journey.",
-  // },
-];
+import { useLocale } from "../LanguageProvider";
 
 const CeylonixWhyChooseUs = ({ whyChooseUs }) => {
+  const { t } = useLocale();
+  const features = t("aboutPage.readyFeatures") || [];
   return (
     <section
       className="ceylon-why-choose ceylon-section"
@@ -54,12 +40,12 @@ const CeylonixWhyChooseUs = ({ whyChooseUs }) => {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <span className="ceylon-subtitle text-white">Are You Ready To Travel?</span>
+              <span className="ceylon-subtitle text-white">{t("aboutPage.readySubtitle")}</span>
               <h2 className="ceylon-title text-white mb-3 pt-2">
-                Explore Sri Lanka With A Trusted Travel Partner
+                {t("aboutPage.readyTitle")}
               </h2>
               <p className="text-white-100 mb-4" style={{ fontSize: "16px" }}>
-                Let Ceylonix handle your journey while you focus on creating unforgettable memories. From planning to execution, we ensure a seamless travel experience designed just for you.
+                {t("aboutPage.readyText")}
               </p>
               <hr
                 style={{
@@ -96,7 +82,7 @@ const CeylonixWhyChooseUs = ({ whyChooseUs }) => {
                   </li>
                 ))}
               </ul>
-              <button className="px-4 py-2 mt-4" style={{ color: '#FC0FC0', backgroundColor: 'white',borderRadius:"8px", border:"2px", borderColor:"#FC0FC0", font:"17px", fontWeight:"500" }}>Contact Us</button>
+              <Link href="/contact" className="ceylon-btn px-4 py-2 mt-4 d-inline-block text-decoration-none" style={{ color: '#FC0FC0', backgroundColor: 'white',borderRadius:"8px", border:"2px", borderColor:"#FC0FC0", font:"17px", fontWeight:"500" }}>{t("common.contactUs")}</Link>
             </motion.div>
           </div>
 

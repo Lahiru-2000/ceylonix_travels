@@ -1,13 +1,15 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLocale } from '../LanguageProvider';
 
 const CeylonixStats = () => {
+  const { t } = useLocale();
   const stats = [
-    { label: 'Years Experience', value: '20+' },
-    { label: 'Yearly Customers', value: '5k+' },
-    { label: 'Visitors Daily', value: '45+' },
-    { label: 'Awards & Honours', value: '12+' }
+    { label: t("stats.years"), value: '20+' },
+    { label: t("stats.customers"), value: '5k+' },
+    { label: t("stats.visitors"), value: '45+' },
+    { label: t("stats.awards"), value: '12+' }
   ];
 
   return (

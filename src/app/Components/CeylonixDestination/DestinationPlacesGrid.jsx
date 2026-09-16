@@ -1,99 +1,108 @@
+"use client";
 import React from "react";
+import Link from "next/link";
 import { HiLocationMarker } from "react-icons/hi";
 import { HiArrowRight } from "react-icons/hi2";
 import { FaStar } from "react-icons/fa";
+import { useLocale } from "../LanguageProvider";
 
 const DestinationPlacesGrid = ({ items }) => {
+  const { t } = useLocale();
+  const groupedItems = items.reduce((groups, item) => {
+    const region = item.region || "Sri Lanka";
+    const existing = groups.find((group) => group.region === region);
+    if (existing) {
+      existing.items.push(item);
+      return groups;
+    }
+    groups.push({ region, items: [item] });
+    return groups;
+  }, []);
+
   return (
     <section style={{ background: "#0C111D", padding: "80px 0" }}>
       <div className="ceylon-container">
-        <span className="ceylon-subtitle">Explore Sri Lanka</span>
+        <span className="ceylon-subtitle">{t("destPage.subtitle")}</span>
         <h2 className="ceylon-title text-white mb-3" style={{ fontSize: "42px" }}>
-          Discover Amazing Places Across Sri Lanka
+          {t("destPage.title")}
         </h2>
         <p style={{ color: "rgba(255,255,255,0.66)", marginBottom: "28px", fontSize: "14px" }}>
-        From golden beaches to misty mountains and ancient cities, explore the most beautiful destinations Sri Lanka has to offer.
+          {t("destPage.description")}
         </p>
 
-        <div className="row g-4">
-          {items.map((item, index) => (
-            <div key={`${item.title}-${index}`} className="col-md-6 col-xl-3">
-              <article
-                style={{
-                  borderRadius: "20px",
-                  border: "1px solid #FAC3FF",
-                  background: "#050825",
-                  overflow: "hidden",
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={item.image} alt={item.title} style={{ width: "100%", height: "180px", objectFit: "cover", borderRadius: "18px 18px 0 0" }} />
-                <div style={{ padding: "18px 16px", flexGrow: 1, display: "flex", flexDirection: "column" }}>
-                  {/* Location and Rating */}
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#00D4FF", fontSize: "16px", fontWeight: 600 }}>
-                      <HiLocationMarker size={18} />
-                      <span>{item.title.split(" ")[0]}</span>
-                    </div>
-                    <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#FFA500", fontSize: "14px", fontWeight: 600 }}>
-                      <FaStar size={16} />
-                      <span>3.6</span>
-                    </div>
-                  </div>
-
-                  {/* Title */}
-                  <h3 style={{ margin: "0 0 12px", color: "#fff", fontSize: "18px", fontWeight: 700, lineHeight: 1.3 }}>
-                    {item.title}
-                  </h3>
-
-                  {/* Duration */}
-                  <p style={{ margin: "0 0 8px", fontSize: "13px", color: "rgba(255,255,255,0.6)" }}>
-                    Duration: 2-3 Days
-                  </p>
-
-                  {/* Ideal For */}
-                  <p style={{ margin: "0 0 16px", fontSize: "13px", color: "rgba(255,255,255,0.6)" }}>
-                    Ideal For: {item.subtitle}
-                  </p>
-
-                  {/* View Details Button */}
-                  <button
-                    type="button"
+        {groupedItems.map((group) => (
+          <div key={group.region} style={{ marginBottom: "48px" }}>
+            <h3 className="ceylon-title text-white mb-4" style={{ fontSize: "28px" }}>
+              {group.region}
+            </h3>
+            <div className="row g-4">
+              {group.items.map((item) => (
+                <div key={item.slug} className="col-md-6 col-xl-3">
+                  <article
                     style={{
-                      marginTop: "auto",
-                      width: "100%",
-                      border: "none",
-                      color: "#E91E8C",
-                      background: "rgba(139, 0, 139, 0.3)",
-                      borderRadius: "8px",
-                      fontSize: "14px",
-                      padding: "12px 14px",
-                      fontWeight: 600,
-                      cursor: "pointer",
+                      borderRadius: "20px",
+                      border: "1px solid #FAC3FF",
+                      background: "#050825",
+                      overflow: "hidden",
+                      height: "100%",
                       display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      gap: "8px",
-                      transition: "all 0.3s ease",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.target.style.background = "rgba(139, 0, 139, 0.5)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.target.style.background = "rgba(139, 0, 139, 0.3)";
+                      flexDirection: "column",
                     }}
                   >
-                    View Details
-                    <HiArrowRight size={16} />
-                  </button>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={item.image} alt={item.title} style={{ width: "100%", height: "180px", objectFit: "cover", borderRadius: "18px 18px 0 0" }} />
+                    <div style={{ padding: "18px 16px", flexGrow: 1, display: "flex", flexDirection: "column" }}>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#00D4FF", fontSize: "16px", fontWeight: 600 }}>
+                          <HiLocationMarker size={18} />
+                          <span>{item.region}</span>
+                        </div>
+                        <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#FFA500", fontSize: "14px", fontWeight: 600 }}>
+                          <FaStar size={16} />
+                          <span>{item.rating}</span>
+                        </div>
+                      </div>
+
+                      <h3 style={{ margin: "0 0 12px", color: "#fff", fontSize: "18px", fontWeight: 700, lineHeight: 1.3 }}>
+                        {item.title}
+                      </h3>
+
+                      <p style={{ margin: "0 0 8px", fontSize: "13px", color: "rgba(255,255,255,0.6)" }}>
+                        {t("common.duration")}: {item.duration}
+                      </p>
+
+                      <p style={{ margin: "0 0 16px", fontSize: "13px", color: "rgba(255,255,255,0.6)" }}>
+                        {t("common.idealFor")}: {item.subtitle}
+                      </p>
+
+                      <Link
+                        href={`/destinations/${item.slug}`}
+                        className="ceylon-btn text-decoration-none"
+                        style={{
+                          marginTop: "auto",
+                          width: "100%",
+                          color: "#E91E8C",
+                          background: "rgba(139, 0, 139, 0.3)",
+                          borderRadius: "8px",
+                          fontSize: "14px",
+                          padding: "12px 14px",
+                          fontWeight: 600,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          gap: "8px",
+                        }}
+                      >
+                        {t("common.viewDetails")}
+                        <HiArrowRight size={16} />
+                      </Link>
+                    </div>
+                  </article>
                 </div>
-              </article>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );

@@ -1,0 +1,94 @@
+{
+  "packages": [
+    {
+      "slug": "silver",
+      "title": "Silver Package",
+      "price": "$100",
+      "priceNote": "From $100 per person, based on a small-group itinerary",
+      "blurb": "Perfect for budget-conscious travelers seeking essential experiences.",
+      "overview": "Silver is the practical Ceylonix starting point: comfortable transport, standard hotels or guesthouses, and the key stops on a classic Sri Lanka route. It keeps the plan simple so you can see more of the island without paying for extras you may not need.",
+      "idealFor": "Couples, friends, and first-time visitors who want the main highlights at a sensible cost.",
+      "duration": "Flexible, typically 5–10 days",
+      "groupStyle": "Shared vehicle with other guests when group size allows",
+      "included": [
+        "Air-conditioned transport between planned stops",
+        "Standard hotel or guesthouse stays with breakfast",
+        "Key destination visits on a set route",
+        "Basic English-speaking guide support",
+        "Airport pickup and drop-off on tour dates"
+      ],
+      "notIncluded": [
+        "Entrance tickets to sites and parks",
+        "Lunches, dinners, and personal expenses",
+        "Optional activities such as safari or whale watching"
+      ],
+      "samplePlan": [
+        "Meet your driver-guide and start the cultural or hill-country route",
+        "Visit the main temples, viewpoints, and towns listed in your itinerary",
+        "Stay in clean, well-located standard hotels",
+        "End with a coastal or city drop-off as planned"
+      ],
+      "tips": "Silver works best if you are happy with a shared schedule and standard rooms. Tell us your arrival city so we can fit the route around your flights."
+    },
+    {
+      "slug": "gold",
+      "title": "Gold Package",
+      "price": "$200",
+      "priceNote": "From $200 per person, with stronger hotels and guiding",
+      "blurb": "Balanced comfort and experience for a memorable journey.",
+      "overview": "Gold is the middle path most guests choose. You keep a well-paced itinerary, stay in better hotels, and travel with a more experienced guide. Destinations are curated so the days feel full without being rushed.",
+      "idealFor": "Families and couples who want comfort, better locations, and a smoother day-to-day plan.",
+      "duration": "Flexible, typically 7–12 days",
+      "groupStyle": "Small group or private vehicle, depending on booking",
+      "included": [
+        "Comfortable private or small-group transport",
+        "Premium 3–4 star style accommodations",
+        "Experienced tour guide throughout the journey",
+        "Curated mix of culture, nature, and coast",
+        "Enhanced travel comfort and daily briefing"
+      ],
+      "notIncluded": [
+        "Some optional experiences billed separately",
+        "Alcohol and spa treatments",
+        "International flights"
+      ],
+      "samplePlan": [
+        "Start with a cultural triangle or Kandy stay in a stronger hotel",
+        "Add a hill-country night with a tea-country stop",
+        "Include one wildlife or coastal highlight with timed entries",
+        "Finish with a quieter beach or Galle Fort evening"
+      ],
+      "tips": "Gold is the easiest package to customize. Share any must-see places, walking limits, or family needs when you inquire."
+    },
+    {
+      "slug": "platinum",
+      "title": "Platinum Package",
+      "price": "$300",
+      "priceNote": "From $300 per person, for private luxury travel",
+      "blurb": "Luxury travel with exclusive experiences and maximum comfort.",
+      "overview": "Platinum is a private Ceylonix journey: luxury hotels and resorts, a dedicated driver and guide, and an itinerary built around your pace. Days can include exclusive experiences, flexible timing, and VIP handling at key stops.",
+      "idealFor": "Honeymoons, special occasions, and travellers who want privacy and high-end stays.",
+      "duration": "Fully tailor-made, typically 8–14 days",
+      "groupStyle": "Private vehicle, private guide, and private driver",
+      "included": [
+        "Luxury hotels, villas, or resort stays",
+        "Private chauffeur and dedicated guide",
+        "Personalized itinerary with flexible timing",
+        "VIP travel support and priority planning",
+        "Handpicked dining and experience suggestions"
+      ],
+      "notIncluded": [
+        "Premium spa or helicopter add-ons unless requested",
+        "International flights",
+        "Personal shopping and separately booked fine dining"
+      ],
+      "samplePlan": [
+        "Private arrival handling and a slower first night",
+        "Cultural and wildlife days timed around your energy",
+        "Luxury hill-country or south-coast stays",
+        "Optional exclusive add-ons such as balloon, helicopter, or private dining"
+      ],
+      "tips": "Platinum works best when we know your travel dates and hotel style early. We then lock rooms and private experiences around that plan."
+    }
+  ]
+}

@@ -1,27 +1,16 @@
+"use client";
 import React from "react";
+import { useLocale } from "../LanguageProvider";
 
-const contactCards = [
-  {
-    icon: "⌖",
-    title: "Our Address",
-    line1: "Ceylonix Travels (Pvt) Ltd",
-    line2: "Colombo, Sri Lanka",
-  },
-  {
-    icon: "✉",
-    title: "Email Us",
-    line1: "info@ceylonix.com",
-    line2: "Email us anytime for tour inquiries and support.",
-  },
-  {
-    icon: "☎",
-    title: "Call / WhatsApp",
-    line1: "+94 77 657 6689",
-    line2: "Contact us for quick assistance and travel guidance.",
-  },
-];
+const contactIcons = ["⌖", "✉", "☎"];
 
 const ContactDetailsSection = ({ image }) => {
+  const { t } = useLocale();
+  const contactCards = (t("contactPage.cards") || []).map((card, index) => ({
+    ...card,
+    icon: contactIcons[index],
+  }));
+
   return (
     <section style={{ background: "#0C111D", padding: "70px 0 80px" }}>
       <div className="ceylon-container">
@@ -93,7 +82,7 @@ const ContactDetailsSection = ({ image }) => {
             </div>
 
             {/* Form Box */}
-            <div className="col-lg-7">
+            <div className="col-lg-7" id="inquiry" style={{ scrollMarginTop: "110px" }}>
               <div
                 style={{
                   background: "#000000",
@@ -106,21 +95,21 @@ const ContactDetailsSection = ({ image }) => {
                   justifyContent: "center",
                 }}
               >
-                <h2 style={{ margin: "0 0 16px 0", color: "#fff", fontSize: "36px", fontWeight: 700 }}>Send a Message</h2>
+                <h2 style={{ margin: "0 0 16px 0", color: "#fff", fontSize: "36px", fontWeight: 700 }}>{t("contactPage.formTitle")}</h2>
                 <p style={{ color: "rgba(255,255,255,0.75)", marginBottom: "28px", fontSize: "15px", lineHeight: 1.6 }}>
-                  Tell us about your travel plans and preferences. Our team will get back to you within 24 hours with the best options for your journey.
+                  {t("contactPage.formText")}
                 </p>
 
                 <form onSubmit={(e) => e.preventDefault()} style={{ flex: 1, display: "flex", flexDirection: "column" }}>
                   <div className="row g-3" style={{ marginRight: 0, marginLeft: 0, marginBottom: "16px" }}>
                     <div className="col-md-6" style={{ paddingRight: 0, paddingLeft: 0 }}>
                       <label htmlFor="contactName" style={{ display: "block", color: "#fff", fontSize: "13px", marginBottom: "8px", fontWeight: 600 }}>
-                        Full Name
+                        {t("contactPage.name")}
                       </label>
                       <input
                         id="contactName"
                         type="text"
-                        placeholder="Enter your full name"
+                        placeholder={t("contactPage.namePlaceholder")}
                         style={{
                           width: "100%",
                           border: "1px solid rgba(255,255,255,0.15)",
@@ -136,12 +125,12 @@ const ContactDetailsSection = ({ image }) => {
                     </div>
                     <div className="col-md-6" style={{ paddingRight: 0, paddingLeft: 0 }}>
                       <label htmlFor="contactEmail" style={{ display: "block", color: "#fff", fontSize: "13px", marginBottom: "8px", fontWeight: 600 }}>
-                        Email Address
+                        {t("contactPage.email")}
                       </label>
                       <input
                         id="contactEmail"
                         type="email"
-                        placeholder="Enter your email"
+                        placeholder={t("contactPage.emailPlaceholder")}
                         style={{
                           width: "100%",
                           border: "1px solid rgba(255,255,255,0.15)",
@@ -159,11 +148,11 @@ const ContactDetailsSection = ({ image }) => {
 
                   <div style={{ marginBottom: "20px" }}>
                     <label htmlFor="contactMessage" style={{ display: "block", color: "#fff", fontSize: "13px", marginBottom: "8px", fontWeight: 600 }}>
-                      Message
+                      {t("contactPage.message")}
                     </label>
                     <textarea
                       id="contactMessage"
-                      placeholder="Write your travel requirements"
+                      placeholder={t("contactPage.messagePlaceholder")}
                       rows={7}
                       style={{
                         width: "100%",
@@ -201,7 +190,7 @@ const ContactDetailsSection = ({ image }) => {
                       e.target.style.background = "#fff";
                     }}
                   >
-                    Send Inquiry
+                    {t("common.sendInquiry")}
                   </button>
                 </form>
               </div>

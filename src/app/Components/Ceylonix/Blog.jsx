@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useLocale } from "../LanguageProvider";
 
@@ -45,6 +46,7 @@ const CeylonixBlog = ({ blogPosts }) => {
         <div className="row g-4 mt-5">
           {blogPosts.map((post, index) => (
             <div key={post.title + index} className="col-lg-3 col-md-6">
+              <Link href={post.slug ? `/blog/${post.slug}` : "/blog"} className="text-decoration-none d-block h-100">
               <motion.article
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -75,6 +77,7 @@ const CeylonixBlog = ({ blogPosts }) => {
                   </h3>
                 </div>
               </motion.article>
+              </Link>
             </div>
           ))}
         </div>

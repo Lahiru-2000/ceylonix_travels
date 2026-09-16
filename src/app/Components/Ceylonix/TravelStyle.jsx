@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { FaPaperPlane, FaPlane, FaRocket, FaCheck } from "react-icons/fa";
 import { useLocale } from "../LanguageProvider";
 
@@ -8,6 +9,7 @@ const CeylonixTravelStyle = () => {
   const { t } = useLocale();
   const defaultPackages = [
     {
+      slug: "silver",
       title: "Silver Package",
       icon: FaPaperPlane,
       price: "$100",
@@ -20,6 +22,7 @@ const CeylonixTravelStyle = () => {
       ],
     },
     {
+      slug: "gold",
       title: "Gold Package",
       icon: FaPlane,
       price: "$200",
@@ -32,6 +35,7 @@ const CeylonixTravelStyle = () => {
       ],
     },
     {
+      slug: "platinum",
       title: "Platinum Package",
       icon: FaRocket,
       price: "$300",
@@ -54,6 +58,7 @@ const CeylonixTravelStyle = () => {
 
   return (
     <section
+      id="packages"
       className="ceylon-travel-style ceylon-section"
       style={{ background: "#0b0e14" }}
     >
@@ -121,18 +126,17 @@ const CeylonixTravelStyle = () => {
                       </li>
                     ))}
                   </ul>
-                  <button
-                    type="button"
-                    className="w-100 border-0 fw-semibold py-3 rounded-3 mt-auto"
+                  <Link
+                    href={`/packages/${pkg.slug}`}
+                    className="ceylon-btn w-100 border-0 fw-semibold py-3 rounded-3 mt-auto text-decoration-none d-inline-block"
                     style={{
-                      background: '#FC0FC029',
-
+                      background: "#FC0FC029",
                       color: "#fc0fc0",
                       fontSize: "15px",
                     }}
                   >
                     {t("travelStyle.detailsButton")}
-                  </button>
+                  </Link>
                 </motion.div>
               </div>
             );

@@ -1,18 +1,21 @@
+"use client";
 import React from "react";
-
-const guides = [
-  { name: "Nirmal Perera", title: "Senior Tour Guide", experience: "8+ Years Experience" },
-  { name: "Nirmal Perera", title: "Senior Tour Guide", experience: "8+ Years Experience" },
-  { name: "Nirmal Perera", title: "Senior Tour Guide", experience: "8+ Years Experience" },
-  { name: "Nirmal Perera", title: "Senior Tour Guide", experience: "8+ Years Experience" },
-];
+import { useLocale } from "../LanguageProvider";
 
 const AboutGuideCards = ({ image }) => {
+  const { t } = useLocale();
+  const guides = [
+    { name: "Nirmal Perera" },
+    { name: "Nirmal Perera" },
+    { name: "Nirmal Perera" },
+    { name: "Nirmal Perera" },
+  ];
+
   return (
     <section style={{ background: "#0C111D", padding: "85px 0 95px" }}>
       <div className="ceylon-container">
         <div className="text-center mb-4">
-          <span className="ceylon-subtitle">Meet With Guide</span>
+          <span className="ceylon-subtitle">{t("aboutPage.guidesSubtitle")}</span>
           <h2
             style={{
               color: "#FFFFFF",
@@ -21,17 +24,16 @@ const AboutGuideCards = ({ image }) => {
               marginBottom: "15px",
             }}
           >
-            Our Professional Tour Guides
+            {t("aboutPage.guidesTitle")}
           </h2>
           <p
             style={{
               color: "rgba(255,255,255,1)",
               fontSize: "16px",
-              // maxWidth: "600px",
               margin: "0 auto",
             }}
           >
-            Our experienced and friendly guides are here to make your journey informative, safe, and unforgettable.
+            {t("aboutPage.guidesText")}
           </p>
         </div>
         <div className="row guide.cards" >
@@ -81,7 +83,7 @@ const AboutGuideCards = ({ image }) => {
                       fontWeight: 500,
                     }}
                   >
-                    {guide.title}
+                    {t("aboutPage.guideRole")}
                   </p>
                   <div
                     style={{
@@ -95,7 +97,7 @@ const AboutGuideCards = ({ image }) => {
                       fontWeight: 500,
                     }}
                   >
-                    {guide.experience}
+                    {t("aboutPage.guideYears")}
                   </div>
                 </div>
               </div>
