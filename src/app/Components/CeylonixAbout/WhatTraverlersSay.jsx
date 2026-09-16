@@ -34,9 +34,18 @@ const reviews = [
 const CeylonixTestimonials = ({ userImg }) => {
   const [i, setI] = useState(0);
   const r = reviews[i];
+  const canPrev = i > 0;
+  const canNext = i < reviews.length - 1;
 
-  const prev = () => setI((x) => (x - 1 + reviews.length) % reviews.length);
-  const next = () => setI((x) => (x + 1) % reviews.length);
+  const prev = () => {
+    if (!canPrev) return;
+    setI((x) => x - 1);
+  };
+
+  const next = () => {
+    if (!canNext) return;
+    setI((x) => x + 1);
+  };
 
   return (
     <section className="ceylon-testimonials ceylon-section" style={{ background: "#192030"    }}>
@@ -105,12 +114,14 @@ const CeylonixTestimonials = ({ userImg }) => {
                 <button
                   type="button"
                   onClick={prev}
+                  disabled={!canPrev}
                   className="rounded-circle border-0 d-flex align-items-center justify-content-center"
                   style={{
                     width: 48,
                     height: 48,
-                    background: "#fff",
-                    color: "#0a0a12",
+                    background: canPrev ? "#FC0FC0" : "#fff",
+                    color: canPrev ? "#fff" : "#0a0a12",
+                    cursor: canPrev ? "pointer" : "not-allowed",
                   }}
                   aria-label="Previous testimonial"
                 >
@@ -119,12 +130,14 @@ const CeylonixTestimonials = ({ userImg }) => {
                 <button
                   type="button"
                   onClick={next}
+                  disabled={!canNext}
                   className="rounded-circle border-0 d-flex align-items-center justify-content-center"
                   style={{
                     width: 48,
                     height: 48,
-                    background: "#FC0FC0",
-                    color: "#fff",
+                    background: canNext ? "#FC0FC0" : "#fff",
+                    color: canNext ? "#fff" : "#0a0a12",
+                    cursor: canNext ? "pointer" : "not-allowed",
                   }}
                   aria-label="Next testimonial"
                 >

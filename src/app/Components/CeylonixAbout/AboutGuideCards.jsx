@@ -11,7 +11,7 @@ const AboutGuideCards = ({ image }) => {
   return (
     <section style={{ background: "#0C111D", padding: "85px 0 95px" }}>
       <div className="ceylon-container">
-        <div className="text-center mb-5">
+        <div className="text-center mb-4">
           <span className="ceylon-subtitle">Meet With Guide</span>
           <h2
             style={{
@@ -25,7 +25,7 @@ const AboutGuideCards = ({ image }) => {
           </h2>
           <p
             style={{
-              color: "rgba(255,255,255,0.75)",
+              color: "rgba(255,255,255,1)",
               fontSize: "16px",
               // maxWidth: "600px",
               margin: "0 auto",
@@ -34,12 +34,12 @@ const AboutGuideCards = ({ image }) => {
             Our experienced and friendly guides are here to make your journey informative, safe, and unforgettable.
           </p>
         </div>
-        <div className="row g-4" style={{ marginRight: 0, marginLeft: 0 }}>
+        <div className="row guide.cards" >
           {guides.map((guide, index) => (
             <div
-              className="col-12 col-lg-3 col-sm-6 col-md-4"
+              className="col-12 col-lg-3 col-sm-6 col-md-4 mt-4 "
               key={index}
-              style={{ paddingRight: 0, paddingLeft: 0 }}
+             
             >
               <div
                 style={{

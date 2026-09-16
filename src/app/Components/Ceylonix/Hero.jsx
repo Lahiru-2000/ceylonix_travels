@@ -1,8 +1,11 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLocale } from '../LanguageProvider';
 
 const CeylonixHero = ({ heroImage }) => {
+  const { t } = useLocale();
+
   return (
     <section className="ceylon-hero" style={{
       position: 'relative',
@@ -33,12 +36,12 @@ const CeylonixHero = ({ heroImage }) => {
           className="hero-content-card"
         >
           <span className="ceylon-subtitle text-white">
-            Discover the beauty of Sri Lanka
+            {t("hero.subtitle")}
           </span>
 
           <h1 className="fw-bold mb-4 hero-title-main">
-            Explore Sri Lanka <br />
-            Like Never Before
+            {t("hero.titleLine1")} <br />
+            {t("hero.titleLine2")}
           </h1>
 
           <p className="mb-5" style={{
@@ -46,10 +49,10 @@ const CeylonixHero = ({ heroImage }) => {
             color: 'rgba(255, 255, 255, 0.85)',
             lineHeight: '1.6',
             fontWeight: '400',
-            fontFamily: 'inter',
-            maxWidth:"400px"
+            fontFamily: 'Inter, sans-serif',
+            maxWidth: "400px",
           }}>
-            Experience handpicked journeys across Sri Lanka with expert guides, comfortable travel, and unforgettable destinations - all designed for a seamless and personalized travel experience.
+            {t("hero.description")}
           </p>
 
           <div className="d-flex align-items-center gap-3 hero-btn-group">
@@ -65,7 +68,7 @@ const CeylonixHero = ({ heroImage }) => {
               textTransform: 'none',
               boxShadow: '0 4px 15px #A5A3AE4D'
             }}>
-              View Packages
+              {t("hero.buttonPackages")}
             </button>
             <button style={{
               background: '#FFFFFF',
@@ -79,7 +82,7 @@ const CeylonixHero = ({ heroImage }) => {
               textTransform: 'none',
               boxShadow: '0 1px 4px #FC0FC0'
             }}>
-              Request Tour
+              {t("hero.buttonRequest")}
             </button>
           </div>
         </motion.div>

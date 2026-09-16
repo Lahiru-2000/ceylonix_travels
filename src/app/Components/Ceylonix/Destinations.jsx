@@ -3,8 +3,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { HiArrowUpRight } from "react-icons/hi2";
+import { useLocale } from "../LanguageProvider";
 
 const CeylonixDestinations = ({ destinations }) => {
+  const { t } = useLocale();
   return (
     <section
       className="ceylon-destinations ceylon-section"
@@ -13,10 +15,10 @@ const CeylonixDestinations = ({ destinations }) => {
       <div className="ceylon-container">
         <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start gap-4 mb-5">
           <div>
-            <span className="ceylon-subtitle text-white d-block mb-2">Top Destinations</span>
-            <h2 className="ceylon-title text-white m-0 mb-2 pt-3">Explore Top Destinations</h2>
+            <span className="ceylon-subtitle text-white d-block mb-2">{t("destinations.sectionSubtitle")}</span>
+            <h2 className="ceylon-title text-white m-0 mb-2 pt-3">{t("destinations.title")}</h2>
             <p className="text-white-100 m-0" style={{ fontSize: "15px" }}>
-              From breathtaking landscapes to cultural landmarks, discover the best of Sri Lanka.
+              {t("destinations.description")}
             </p>
           </div>
           <Link
@@ -28,7 +30,7 @@ const CeylonixDestinations = ({ destinations }) => {
               fontSize: "15px",
             }}
           >
-            Explore All Destinations
+            {t("destinations.exploreAll")}
           </Link>
         </div>
 

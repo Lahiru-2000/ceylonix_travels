@@ -1,23 +1,25 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useLocale } from "../LanguageProvider";
 
 const CeylonixBlog = ({ blogPosts }) => {
-  const [active, setActive] = useState("Home");
-  const tabs = ["Home", "Tips", "Guides", "Stories"];
+  const { t } = useLocale();
+  const [active, setActive] = useState(t("blog.tabs")[0]);
+  const tabs = t("blog.tabs") || ["Home", "Tips", "Guides", "Stories"];
 
   return (
     <section className="ceylon-blog ceylon-section" style={{ background: "#0C111D" }}>
       <div className="ceylon-container">
         <div className=" mb-4" >
-          <span className="ceylon-subtitle text-white d-block">Blog Preview</span>
-          <h2 className="ceylon-title text-white mt-2 mb-3 pt-2" style={{font:"60px"}}>Travel Tips & Insights</h2>
+          <span className="ceylon-subtitle text-white d-block">{t("blog.sectionSubtitle")}</span>
+          <h2 className="ceylon-title text-white mt-2 mb-3 pt-2" style={{font:"60px"}}>{t("blog.title")}</h2>
           <p className="text-white-100 m-0" style={{ fontSize: "16px" }}>
-            Discover guides, tips, and stories to help you plan your perfect trip.
+            {t("blog.description")}
           </p>
         </div>
 
-        <div className="d-flex justify-content-center gap-4 flex-wrap mb-5">
+        {/* <div className="d-flex justify-content-center gap-4 flex-wrap mb-5">
           {tabs.map((t) => (
             <button
               key={t}
@@ -38,9 +40,9 @@ const CeylonixBlog = ({ blogPosts }) => {
               )}
             </button>
           ))}
-        </div>
+        </div> */}
 
-        <div className="row g-4">
+        <div className="row g-4 mt-5">
           {blogPosts.map((post, index) => (
             <div key={post.title + index} className="col-lg-3 col-md-6">
               <motion.article
@@ -65,7 +67,7 @@ const CeylonixBlog = ({ blogPosts }) => {
                   </span>
                 </div>
                 <div className="p-4 flex-grow-1 d-flex flex-column">
-                  <p className="text-white-50 small mb-2" style={{ fontSize: "13px" }}>
+                  <p className="text-white-100 small mb-2" style={{ fontSize: "13px" }}>
                     {post.date} | By {post.author}
                   </p>
                   <h3 className="text-white fw-semibold mb-0" style={{ fontSize: "16px", lineHeight: 1.45 }}>

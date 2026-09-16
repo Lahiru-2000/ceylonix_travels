@@ -2,47 +2,56 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaPaperPlane, FaPlane, FaRocket, FaCheck } from "react-icons/fa";
-
-const packages = [
-  {
-    title: "Silver Package",
-    icon: FaPaperPlane,
-    price: "$100",
-    blurb: "Perfect for budget-conscious travelers seeking essential experiences.",
-    features: [
-      "Comfortable transport",
-      "Standard accommodations",
-      "Key destination visits",
-      "Basic guide support",
-    ],
-  },
-  {
-    title: "Gold Package",
-    icon: FaPlane,
-    price: "$200",
-    blurb: "Balanced comfort and experience for a memorable journey.",
-    features: [
-      "Premium accommodations",
-      "Experienced tour guide",
-      "Curated destinations",
-      "Enhanced travel comfort",
-    ],
-  },
-  {
-    title: "Platinum Package",
-    icon: FaRocket,
-    price: "$300",
-    blurb: "Luxury travel with exclusive experiences and maximum comfort.",
-    features: [
-      "Luxury hotels & resorts",
-      "Private guide & driver",
-      "Personalized itinerary",
-      "VIP travel experience",
-    ],
-  },
-];
+import { useLocale } from "../LanguageProvider";
 
 const CeylonixTravelStyle = () => {
+  const { t } = useLocale();
+  const defaultPackages = [
+    {
+      title: "Silver Package",
+      icon: FaPaperPlane,
+      price: "$100",
+      blurb: "Perfect for budget-conscious travelers seeking essential experiences.",
+      features: [
+        "Comfortable transport",
+        "Standard accommodations",
+        "Key destination visits",
+        "Basic guide support",
+      ],
+    },
+    {
+      title: "Gold Package",
+      icon: FaPlane,
+      price: "$200",
+      blurb: "Balanced comfort and experience for a memorable journey.",
+      features: [
+        "Premium accommodations",
+        "Experienced tour guide",
+        "Curated destinations",
+        "Enhanced travel comfort",
+      ],
+    },
+    {
+      title: "Platinum Package",
+      icon: FaRocket,
+      price: "$300",
+      blurb: "Luxury travel with exclusive experiences and maximum comfort.",
+      features: [
+        "Luxury hotels & resorts",
+        "Private guide & driver",
+        "Personalized itinerary",
+        "VIP travel experience",
+      ],
+    },
+  ];
+
+  const translatedPackages = t("travelStyle.packages");
+  const packages = (Array.isArray(translatedPackages) ? translatedPackages : defaultPackages).map((pkg, index) => ({
+    ...defaultPackages[index],
+    ...pkg,
+    icon: pkg.icon || defaultPackages[index].icon,
+  }));
+
   return (
     <section
       className="ceylon-travel-style ceylon-section"
@@ -50,10 +59,10 @@ const CeylonixTravelStyle = () => {
     >
       <div className="ceylon-container">
         <div className="text-center mb-5 mx-auto" style={{ maxWidth: "720px" }}>
-          <span className="ceylon-subtitle text-white d-block">Our Packages</span>
-          <h2 className="ceylon-title text-white mt-2 mb-3">Choose Your Travel Style</h2>
-          <p className="text-white-50 m-0" style={{ fontSize: "16px", lineHeight: 1.6 }}>
-            Flexible packages designed to match your comfort, budget, and travel expectations.
+          <span className="ceylon-subtitle text-white d-block">{t("travelStyle.sectionSubtitle")}</span>
+          <h2 className="ceylon-title text-white mt-2 mb-3">{t("travelStyle.title")}</h2>
+          <p className="text-white-100 m-0" style={{ fontSize: "16px", lineHeight: 1.6 }}>
+            {t("travelStyle.description")}
           </p>
         </div>
 
@@ -101,12 +110,12 @@ const CeylonixTravelStyle = () => {
                   >
                     {pkg.price}
                   </p>
-                  <p className="text-white-50 small mb-4" style={{ fontSize: "14px", lineHeight: 1.55 }}>
+                  <p className="text-white-100 small mb-4" style={{ fontSize: "14px", lineHeight: 1.55 }}>
                     {pkg.blurb}
                   </p>
                   <ul className="list-unstyled text-start mb-4 flex-grow-1" style={{ fontSize: "14px" }}>
                     {pkg.features.map((line) => (
-                      <li key={line} className="d-flex align-items-start gap-2 mb-2 text-white-50">
+                      <li key={line} className="d-flex align-items-start gap-2 mb-2 text-white-100">
                         <FaCheck className="flex-shrink-0 mt-1" style={{ color: "#e91e63", fontSize: "12px" }} />
                         <span>{line}</span>
                       </li>
@@ -116,12 +125,13 @@ const CeylonixTravelStyle = () => {
                     type="button"
                     className="w-100 border-0 fw-semibold py-3 rounded-3 mt-auto"
                     style={{
-                      background: "linear-gradient(145deg, #1a0f28 0%, #120a1c 100%)",
+                      background: '#FC0FC029',
+
                       color: "#fc0fc0",
                       fontSize: "15px",
                     }}
                   >
-                    View Details
+                    {t("travelStyle.detailsButton")}
                   </button>
                 </motion.div>
               </div>

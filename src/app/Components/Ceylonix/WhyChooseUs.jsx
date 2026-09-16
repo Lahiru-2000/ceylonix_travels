@@ -2,26 +2,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaCheck } from "react-icons/fa";
-const features = [
-  {
-    title: "Expert Local Guides",
-    text: "Discover hidden gems with experienced and friendly guides.",
-  },
-  {
-    title: "Comfortable Travel",
-    text: "Travel in modern, air-conditioned vehicles with full safety.",
-  },
-  {
-    title: "Personalized Service",
-    text: "Every journey is tailored to your needs and preferences.",
-  },
-  {
-    title: "24/7 Support",
-    text: "We're always here to assist you throughout your journey.",
-  },
-];
+import { useLocale } from "../LanguageProvider";
 
 const CeylonixWhyChooseUs = ({ whyChooseUs }) => {
+  const { t } = useLocale();
+  const features = t("whyChooseUs.features") || [];
   return (
     <section
       className="ceylon-why-choose ceylon-section"
@@ -52,12 +37,12 @@ const CeylonixWhyChooseUs = ({ whyChooseUs }) => {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <span className="ceylon-subtitle text-white">Why Choose Us</span>
+              <span className="ceylon-subtitle text-white">{t("whyChooseUs.sectionSubtitle")}</span>
               <h2 className="ceylon-title text-white mb-3 pt-2">
-                Why Travel With Ceylonix
+                {t("whyChooseUs.title")}
               </h2>
               <p className="text-white-100 mb-4" style={{ fontSize: "16px" }}>
-                We deliver more than just tours — we create unforgettable experiences.
+                {t("whyChooseUs.description")}
               </p>
               <hr
                 style={{

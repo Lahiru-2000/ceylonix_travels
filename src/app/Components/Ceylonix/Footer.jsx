@@ -10,15 +10,17 @@ import {
   FaGoogle,
 } from "react-icons/fa";
 import { HiOutlineMail, HiOutlinePhone } from "react-icons/hi";
+import { useLocale } from "../LanguageProvider";
 
 const CeylonixFooter = ({ logoImage }) => {
+  const { t } = useLocale();
   const quickLinks = [
-    { label: "Home", href: "/" },
-    { label: "About Us", href: "/about-us" },
-    { label: "Destinations", href: "/destinations" },
-    { label: "Gallery", href: "/gallery" },
-    { label: "Blog", href: "/blog" },
-    { label: "Contact", href: "/contact" },
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.about"), href: "/about-us" },
+    { label: t("nav.destinations"), href: "/destinations" },
+    { label: t("nav.gallery"), href: "/gallery" },
+    { label: t("nav.blog"), href: "/blog" },
+    { label: t("nav.contact"), href: "/contact" },
   ];
 
   return (
@@ -57,7 +59,7 @@ const CeylonixFooter = ({ logoImage }) => {
 
           {/* QUICK LINKS */}
           <div className="col-6 col-md-6 col-xl-2 footer-mobile-center">
-            <h5 className="footer-title">Quick Link</h5>
+            <h5 className="footer-title">{t("footer.quickLinkTitle")}</h5>
 
             <ul className="footer-links">
               {quickLinks.map((item) => (
@@ -72,7 +74,7 @@ const CeylonixFooter = ({ logoImage }) => {
 
           {/* CONTACT */}
           <div className="col-12 col-md-6 col-xl-3 footer-mobile-center">
-            <h5 className="footer-title">Contact</h5>
+            <h5 className="footer-title">{t("footer.contactTitle")}</h5>
 
             <div className="footer-contact-wrapper">
               {/* EMAIL */}
@@ -82,7 +84,7 @@ const CeylonixFooter = ({ logoImage }) => {
                 </div>
 
                 <div>
-                  <p className="footer-contact-label">Email</p>
+                  <p className="footer-contact-label">{t("footer.emailLabel")}</p>
                   <p className="footer-contact-value">
                     info@ceylonix.com
                   </p>
@@ -96,7 +98,7 @@ const CeylonixFooter = ({ logoImage }) => {
                 </div>
 
                 <div>
-                  <p className="footer-contact-label">Mobile</p>
+                  <p className="footer-contact-label">{t("footer.mobileLabel")}</p>
                   <p className="footer-contact-value">
                     077 657 6689
                   </p>
@@ -109,11 +111,11 @@ const CeylonixFooter = ({ logoImage }) => {
           <div className="col-12 col-md-6 col-xl-3 footer-mobile-center">
             <div className="footer-newsletter">
               <h5 className="footer-title">
-                Stay Connected With Ceylonix
+                {t("footer.newsletterTitle")}
               </h5>
 
               <p className="footer-newsletter-text">
-                Get updates, travel inspiration, and exclusive offers.
+                {t("footer.newsletterText")}
               </p>
 
               <form
@@ -122,13 +124,13 @@ const CeylonixFooter = ({ logoImage }) => {
               >
                 <input
                   type="email"
-                  placeholder="Your email address"
+                  placeholder={t("footer.emailPlaceholder")}
                   style={{
                     color: "#111",
                   }}
                 />
 
-                <button type="submit">Send</button>
+                <button type="submit">{t("footer.sendButton")}</button>
               </form>
             </div>
           </div>
@@ -140,7 +142,7 @@ const CeylonixFooter = ({ logoImage }) => {
         <div className="ceylon-container">
           <div className="footer-bottom-content">
             <p>
-              Copyright © CEYLONIX, All Right Reserved.
+              {t("footer.copyright")}
             </p>
 
             <div className="footer-socials">

@@ -2,14 +2,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaCheckCircle } from 'react-icons/fa';
+import { useLocale } from '../LanguageProvider';
 
 const CeylonixAbout = ({ aboutImage }) => {
-  const features = [
-    { title: 'Local Expertise', text: 'Our experienced guides know Sri Lanka inside out, helping you discover hidden gems beyond typical tourist paths.' },
-    { title: 'Comfort & Safety', text: 'Travel in modern, air-conditioned vehicles with professional drivers ensuring a smooth and safe journey.' },
-    { title: 'Tailored Experiences', text: 'We understand every traveler is unique. We listen, plan, and deliver journeys that match your expectations.' },
-    { title: 'Trusted Service', text: 'We are committed to quality, reliability, and building long-term trust with every traveler.' }
-  ];
+  const { t } = useLocale();
+  const features = t('about.features') || [];
 
   return (
     <section className="ceylon-about ceylon-section" style={{
@@ -59,14 +56,13 @@ const CeylonixAbout = ({ aboutImage }) => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <span className="ceylon-subtitle">About ceylonix</span>
+              <span className="ceylon-subtitle">{t('about.sectionSubtitle')}</span>
               <h2 className="ceylon-title text-white" style={{  fontWeight: 600, fontStyle: 'semibold' }}>
-                Crafting Unforgettable <br />
-                Journeys Across Sri Lanka
+                {t('about.titleLine1')} <br />
+                {t('about.titleLine2')}
               </h2>
               <p className="text-white-100 mb-4" style={{ fontSize: '15px' }}>
-                At Ceylonix, we believe travel is more than just visiting places - it’s about creating meaningful experiences that stay with you forever. As a Sri Lanka-based tour company, we specialize in delivering carefully curated journeys designed for international travelers who seek comfort, authenticity, and adventure.
-                From breathtaking landscapes to rich cultural heritage, our team ensures every detail of your journey is thoughtfully planned, giving you a seamless and memorable travel experience.
+                {t('about.description1')} {t('about.description2')} {t('about.description3')}
               </p>
 
               <hr style={{ color: 'white', width: '100%', height: '1px', borderRadius: '5px' }} />
@@ -83,7 +79,9 @@ const CeylonixAbout = ({ aboutImage }) => {
                 ))}
               </ul>
 
-              <button className="px-4 py-2 mt-2" style={{ color: '#FC0FC0', backgroundColor: 'white',borderRadius:"8px", border:"1px", borderColor:"#FC0FC0", font:"17px", fontWeight:"500" }}>Learn More About Us</button>
+              <button className="px-4 py-2 mt-2" style={{ color: '#FC0FC0', backgroundColor: 'white',borderRadius:"8px", border:"1px", borderColor:"#FC0FC0", font:"17px", fontWeight:"500" }}>
+                {t('about.learnMore')}
+              </button>
             </motion.div>
           </div>
         </div>

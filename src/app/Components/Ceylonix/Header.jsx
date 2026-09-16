@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { HiArrowUpRight } from "react-icons/hi2";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocale } from "../LanguageProvider";
 
 function navLinkIsActive(pathname, href) {
   if (!pathname) return false;
@@ -14,6 +15,7 @@ function navLinkIsActive(pathname, href) {
 
 const CeylonixHeader = ({ logoImage }) => {
   const pathname = usePathname();
+  const { t, locale, setLanguage, availableLocales, localeLabels } = useLocale();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -41,13 +43,11 @@ const CeylonixHeader = ({ logoImage }) => {
   }, []);
 
   const navLinks = [
-    { title: "Home", href: "/" },
-    { title: "About", href: "/about-us" },
-    { title: "Destinations", href: "/destinations" },
-    { title: "Gallery", href: "/gallery" },
-    { title: "Blog", href: "/blog" },
-    // { title: "Contact", href: "/contact" },
-    // { title: "Packages", href: "/tour" },
+    { title: t("nav.home"), href: "/" },
+    { title: t("nav.about"), href: "/about-us" },
+    { title: t("nav.destinations"), href: "/destinations" },
+    { title: t("nav.gallery"), href: "/gallery" },
+    { title: t("nav.blog"), href: "/blog" },
   ];
 
   return (
@@ -109,6 +109,26 @@ const CeylonixHeader = ({ logoImage }) => {
         </nav>
 
         <div className="d-flex align-items-center gap-2 gap-md-3 justify-content-between">
+          <div className="d-none d-lg-flex align-items-center gap-2">
+            {availableLocales.map((lang) => (
+              <button
+                key={lang}
+                type="button"
+                onClick={() => setLanguage(lang)}
+                className="border-0 rounded-pill text-white"
+                style={{
+                  background: locale === lang ? "#FC0FC0" : "rgba(255,255,255,0.08)",
+                  color: locale === lang ? "#ffffff" : "#ffffff",
+                  padding: "8px 14px",
+                  fontSize: "13px",
+                  cursor: "pointer",
+                }}
+              >
+                {localeLabels[lang]}
+              </button>
+            ))}
+          </div>
+
           <Link
             href="/contact"
             className="d-none d-md-inline-flex align-items-center rounded-pill text-decoration-none"
@@ -129,7 +149,7 @@ const CeylonixHeader = ({ logoImage }) => {
             }}
           >
             <span style={{ lineHeight: 1, whiteSpace: "nowrap" }}>
-              Contact Us
+              {t("nav.contactButton")}
             </span>
             <span
               className="d-inline-flex align-items-center justify-content-center flex-shrink-0 rounded-circle"
@@ -264,6 +284,26 @@ const CeylonixHeader = ({ logoImage }) => {
                 background: "linear-gradient(to top, #01000B 80%, transparent)",
               }}
             >
+              <div className="d-flex flex-wrap gap-2 mb-3">
+                {availableLocales.map((lang) => (
+                  <button
+                    key={lang}
+                    type="button"
+                    onClick={() => setLanguage(lang)}
+                    className="border-0 rounded-pill"
+                    style={{
+                      background: locale === lang ? "#FC0FC0" : "rgba(255,255,255,0.08)",
+                      color: "white",
+                      padding: "10px 14px",
+                      fontSize: "14px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {localeLabels[lang]}
+                  </button>
+                ))}
+              </div>
+
               <Link
                 href="/contact"
                 style={{
@@ -283,7 +323,7 @@ const CeylonixHeader = ({ logoImage }) => {
                 }}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Contact Us
+                {t("nav.contactButton")}
                 <HiArrowUpRight size={18} />
               </Link>
             </div>

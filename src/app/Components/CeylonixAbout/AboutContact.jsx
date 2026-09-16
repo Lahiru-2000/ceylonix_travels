@@ -4,21 +4,21 @@ import { motion } from "framer-motion";
 import { FaCheck } from "react-icons/fa";
 const features = [
   {
-    title: "Expert Local Guides",
-    text: "Discover hidden gems with experienced and friendly guides.",
+    title: "Most Adventurous Tours",
+    text: "Experience thrilling destinations and unique travel moments.",
   },
   {
-    title: "Comfortable Travel",
-    text: "Travel in modern, air-conditioned vehicles with full safety.",
+    title: "Real Local Experiences",
+    text: "Discover Sri Lanka beyond typical tourist paths.",
   },
-  {
-    title: "Personalized Service",
-    text: "Every journey is tailored to your needs and preferences.",
-  },
-  {
-    title: "24/7 Support",
-    text: "We're always here to assist you throughout your journey.",
-  },
+  // {
+  //   title: "Personalized Service",
+  //   text: "Every journey is tailored to your needs and preferences.",
+  // },
+  // {
+  //   title: "24/7 Support",
+  //   text: "We're always here to assist you throughout your journey.",
+  // },
 ];
 
 const CeylonixWhyChooseUs = ({ whyChooseUs }) => {
@@ -54,12 +54,12 @@ const CeylonixWhyChooseUs = ({ whyChooseUs }) => {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <span className="ceylon-subtitle text-white">Why Choose Us</span>
+              <span className="ceylon-subtitle text-white">Are You Ready To Travel?</span>
               <h2 className="ceylon-title text-white mb-3 pt-2">
-                Why Travel With Ceylonix
+                Explore Sri Lanka With A Trusted Travel Partner
               </h2>
               <p className="text-white-100 mb-4" style={{ fontSize: "16px" }}>
-                We deliver more than just tours — we create unforgettable experiences.
+                Let Ceylonix handle your journey while you focus on creating unforgettable memories. From planning to execution, we ensure a seamless travel experience designed just for you.
               </p>
               <hr
                 style={{
@@ -96,6 +96,7 @@ const CeylonixWhyChooseUs = ({ whyChooseUs }) => {
                   </li>
                 ))}
               </ul>
+              <button className="px-4 py-2 mt-4" style={{ color: '#FC0FC0', backgroundColor: 'white',borderRadius:"8px", border:"2px", borderColor:"#FC0FC0", font:"17px", fontWeight:"500" }}>Contact Us</button>
             </motion.div>
           </div>
 

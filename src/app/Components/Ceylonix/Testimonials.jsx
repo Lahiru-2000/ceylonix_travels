@@ -3,9 +3,11 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaStar } from "react-icons/fa";
 import { HiChevronUp, HiChevronDown } from "react-icons/hi2";
+import { useLocale } from "../LanguageProvider";
 
 const reviews = [
   {
+    image: "/assets/images/ceylonix/traveler-thubs-up.png",
     quote:
       "Ceylonix made our Sri Lanka trip absolutely unforgettable. Everything was perfectly organized from hotels to guides. We felt safe and cared for the entire time.",
     name: "Sophia Doe",
@@ -14,6 +16,7 @@ const reviews = [
     max: 5,
   },
   {
+    image: "/assets/images/ceylonix/watch-story.jpg",
     quote:
       "The personalized itinerary matched exactly what we wanted. Stunning landscapes, smooth transport, and a team that truly knows the island.",
     name: "James Miller",
@@ -22,6 +25,7 @@ const reviews = [
     max: 5,
   },
   {
+    image: "/assets/images/ceylonix/travelExperiance2.jpg",
     quote:
       "Professional, friendly, and great value. We would book again in a heartbeat and recommend Ceylonix to anyone planning a Sri Lanka holiday.",
     name: "Elena Rossi",
@@ -32,32 +36,52 @@ const reviews = [
 ];
 
 const CeylonixTestimonials = ({ userImg }) => {
+  const { t } = useLocale();
   const [i, setI] = useState(0);
   const r = reviews[i];
+  const canPrev = i > 0;
+  const canNext = i < reviews.length - 1;
 
-  const prev = () => setI((x) => (x - 1 + reviews.length) % reviews.length);
-  const next = () => setI((x) => (x + 1) % reviews.length);
+  const prev = () => {
+    if (!canPrev) return;
+    setI((x) => x - 1);
+  };
+
+  const next = () => {
+    if (!canNext) return;
+    setI((x) => x + 1);
+  };
 
   return (
     <section className="ceylon-testimonials ceylon-section" style={{ background: "#000119"    }}>
       <div className="ceylon-container">
-        <div className="row g-3 align-items-center">
+        <div className="row align-items-center ">
           <div className="col-lg-4">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="rounded-5 overflow-hidden mx-auto"
-              style={{  aspectRatio: "2.5/2.1" }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={userImg} alt="" className="w-100 h-100" style={{ objectFit: "cover" }} />
-            </motion.div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`testimonial-image-${i}`}
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 30 }}
+                transition={{ duration: 0.35 }}
+                className="rounded-5 overflow-hidden mx-auto"
+                style={{ aspectRatio: "2.5/2.1" }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={r.image || userImg}
+                  alt={r.name}
+                  className="w-100 h-100"
+                  style={{ objectFit: "cover" }}
+                />
+              </motion.div>
+            </AnimatePresence>
           </div>
 
           <div className="col-lg-8">
-            <span className="ceylon-subtitle text-white d-block mb-2">Testimonials</span>
-            <h2 className="ceylon-title text-white mb-4 pt-2" style={{font:"60px"}}>What Our Travelers Say</h2>
+            <div className=" flex float-lg-end justify-content-end rating-width" >
+            <span className="ceylon-subtitle text-white d-block mb-2">{t("testimonials.sectionSubtitle")}</span>
+            <h2 className="ceylon-title text-white mb-4 pt-2" style={{font:"60px"}}>{t("testimonials.title")}</h2>
 
             <div className="d-flex flex-column flex-lg-row align-items-stretch gap-3 gap-lg-4">
               <div className="flex-grow-1 min-w-0">
@@ -105,12 +129,14 @@ const CeylonixTestimonials = ({ userImg }) => {
                 <button
                   type="button"
                   onClick={prev}
+                  disabled={!canPrev}
                   className="rounded-circle border-0 d-flex align-items-center justify-content-center"
                   style={{
                     width: 48,
                     height: 48,
-                    background: "#fff",
-                    color: "#0a0a12",
+                    background: canPrev ? "#FC0FC0" : "#fff",
+                    color: canPrev ? "#fff" : "#0a0a12",
+                    cursor: canPrev ? "pointer" : "not-allowed",
                   }}
                   aria-label="Previous testimonial"
                 >
@@ -119,18 +145,21 @@ const CeylonixTestimonials = ({ userImg }) => {
                 <button
                   type="button"
                   onClick={next}
+                  disabled={!canNext}
                   className="rounded-circle border-0 d-flex align-items-center justify-content-center"
                   style={{
                     width: 48,
                     height: 48,
-                    background: "#FC0FC0",
-                    color: "#fff",
+                    background: canNext ? "#FC0FC0" : "#fff",
+                    color: canNext ? "#fff" : "#0a0a12",
+                    cursor: canNext ? "pointer" : "not-allowed",
                   }}
                   aria-label="Next testimonial"
                 >
                   <HiChevronDown size={22} />
                 </button>
               </div>
+            </div>
             </div>
           </div>
         </div>

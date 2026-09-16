@@ -1,23 +1,11 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-
-const steps = [
-  {
-    title: "Choose Your Package",
-    description: "Select from our carefully designed travel packages.",
-  },
-  {
-    title: "Send Your Inquiry",
-    description: "Tell us your travel preferences and requirements.",
-  },
-  {
-    title: "Enjoy Your Journey",
-    description: "Relax and explore while we handle everything for you.",
-  },
-];
+import { useLocale } from "../LanguageProvider";
 
 const CeylonixPlanning = ({ planningImgs }) => {
+  const { t } = useLocale();
+  const steps = t("planning.steps") || [];
   const [main, second, third] = planningImgs || [];
 
   return (
@@ -34,17 +22,16 @@ const CeylonixPlanning = ({ planningImgs }) => {
           transition={{ duration: 0.55 }}
         >
           <span className="ceylon-subtitle text-white d-block mb-2">
-            Get Best Travel Experience
+            {t("planning.sectionSubtitle")}
           </span>
           <h2 className="ceylon-title text-white mb-3 pt-1 ">
-            Your Journey, Perfectly Planned
+            {t("planning.title")}
           </h2>
           <p
             className="text-white-100 mb-0 planning-section-lead sm-pt-2"
             style={{ fontSize: "16px", lineHeight: 1.65 }}
           >
-            We ensure every step of your journey is smooth, enjoyable, and
-            memorable.
+            {t("planning.description")}
           </p>
         </motion.div>
 
@@ -93,7 +80,7 @@ const CeylonixPlanning = ({ planningImgs }) => {
                         {step.title}
                       </h4>
                       <p
-                        className="text-white-50 m-0 pe-1"
+                        className="text-white-100 m-0 pe-1"
                         style={{ fontSize: "15px", lineHeight: 1.55 }}
                       >
                         {step.description}

@@ -1,4 +1,5 @@
 import { Kaushan_Script, Manrope, Work_Sans, Kalam, Outfit } from "next/font/google";
+import LanguageProvider from "./Components/LanguageProvider";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import "slick-carousel/slick/slick.css";
@@ -56,7 +57,9 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </head>
       <body className={`${kaushan.variable} ${manrope.variable} ${work_sans.variable} ${kalam.variable} ${outfit.variable}`}>
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

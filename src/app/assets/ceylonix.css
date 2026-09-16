@@ -119,6 +119,14 @@ body {
   margin-bottom: 25px;
 }
 
+.rating-width{
+  width: 90% ;
+}
+
+.guide.cards{
+    width: 90% ;
+  }
+
 /* Gradients */
 .bg-gradient-pink-purple {
   background: linear-gradient(135deg, #FF0080 0%, #D400FF 100%);
@@ -226,6 +234,14 @@ body {
     position: relative !important;
     height: 300px !important;
     margin-top: 40px;
+  }
+  .rating-width{
+    width: 100% !important;
+    padding-top: 20px !important;
+  }
+
+  .guide.cards{
+    width: 100% !important;
   }
 }
 

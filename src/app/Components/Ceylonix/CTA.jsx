@@ -1,8 +1,10 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { useLocale } from "../LanguageProvider";
 
 const CeylonixCTA = ({ ctaImg }) => {
+  const { t } = useLocale();
   return (
     <section
       className="ceylon-cta ceylon-section"
@@ -27,10 +29,10 @@ const CeylonixCTA = ({ ctaImg }) => {
             style={{  maxWidth: "100%", zIndex: 2 }}
           >
             <h2 className="fw-bold text-white mb-3 ceylon-title" style={{  lineHeight: 1.15 }}>
-              Plan Your Dream Trip Today
+              {t("cta.title")}
             </h2>
             <p className="text-white mb-4" style={{ fontSize: "16px" }}>
-              Ready to explore Sri Lanka? Let us create the perfect journey for you.
+              {t("cta.description")}
             </p>
             <hr
               style={{
@@ -52,7 +54,7 @@ const CeylonixCTA = ({ ctaImg }) => {
                   borderRadius:"8px"
                 }}
               >
-                Send Inquiry
+                {t("cta.sendInquiry")}
               </button>
               <button
                 type="button"
@@ -66,7 +68,7 @@ const CeylonixCTA = ({ ctaImg }) => {
                   fontSize: "15px",
                 }}
               >
-                Contact Us
+                {t("cta.contactUs")}
               </button>
             </div>
           </div>
