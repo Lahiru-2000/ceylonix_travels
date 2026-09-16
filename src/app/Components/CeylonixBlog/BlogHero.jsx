@@ -2,7 +2,10 @@
 import React from "react";
 import { useLocale } from "../LanguageProvider";
 
-const BlogHero = ({ image, title, currentPage }) => {
+/**
+ * @param {{ image: string, title?: string, currentPage?: string }} props
+ */
+const BlogHero = ({ image, title = undefined, currentPage = undefined }) => {
   const { t } = useLocale();
   const heroTitle = title || t("blogPage.hero");
   const pageLabel = currentPage || t("blogPage.hero");
