@@ -24,11 +24,13 @@ const DestinationPlaceDetails = ({ place, relatedPlaces = [] }) => {
     );
   }
 
+  const backHref = place.regionSlug ? `/destinations/region/${place.regionSlug}` : "/destinations";
+
   return (
     <section style={{ background: "#0C111D", padding: "40px 0 80px" }}>
       <div className="ceylon-container">
         <Link
-          href="/destinations"
+          href={backHref}
           className="text-decoration-none d-inline-flex align-items-center gap-2 mb-4"
           style={{ color: "#E91E8C", fontWeight: 600, fontSize: "14px" }}
         >

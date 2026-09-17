@@ -58,7 +58,14 @@ const CeylonixWhyChooseUs = ({ whyChooseUs }) => {
               />
               <ul className="list-unstyled m-0 p-0">
                 {features.map((f, i) => (
-                  <li key={i} className="d-flex gap-3 mb-4">
+                  <motion.li
+                    key={i}
+                    className="d-flex gap-3 mb-4"
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.45, delay: i * 0.08 }}
+                  >
                     <span
                       className="flex-shrink-0 d-flex align-items-center justify-content-center rounded-circle"
                       style={{
@@ -79,7 +86,7 @@ const CeylonixWhyChooseUs = ({ whyChooseUs }) => {
                         {f.text}
                       </p>
                     </div>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
               <Link href="/contact" className="ceylon-btn px-4 py-2 mt-4 d-inline-block text-decoration-none" style={{ color: '#FC0FC0', backgroundColor: 'white',borderRadius:"8px", border:"2px", borderColor:"#FC0FC0", font:"17px", fontWeight:"500" }}>{t("common.contactUs")}</Link>

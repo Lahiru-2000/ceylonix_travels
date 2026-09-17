@@ -82,7 +82,7 @@ const HomePage = () => {
         <CeylonixHero heroImage="/assets/images/ceylonix/hero.jpg" />
         <CeylonixAbout aboutImage="/assets/images/ceylonix/about-us.png" />
         <CeylonixStats />
-        <CeylonixTravelStyle />
+        {/* <CeylonixTravelStyle /> */}
         <CeylonixWhyChooseUs
           whyChooseUs="/assets/images/ceylonix/whyChooseUs.png"
           
@@ -98,7 +98,7 @@ const HomePage = () => {
         />
         <CeylonixCTA ctaImg="/assets/images/ceylonix/planTrip.png" />
         <CeylonixTestimonials userImg="/assets/images/ceylonix/WhatOurTravelers Say.png" />
-        <CeylonixBlog blogPosts={blogPosts} />
+        {/* <CeylonixBlog blogPosts={blogPosts} /> */}
       </main>
       <CeylonixFooter logoImage="/assets/images/ceylonix/footerLogo.png" />
     </div>

@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { useLocale } from "../LanguageProvider";
 
 /**
@@ -41,6 +42,11 @@ const DestinationHero = ({ image, title = undefined, currentPage = undefined }) 
           textAlign: "center",
         }}
       >
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
         <h1
           style={{
             margin: "0 0 20px 0",
@@ -59,6 +65,7 @@ const DestinationHero = ({ image, title = undefined, currentPage = undefined }) 
             gap: "8px",
             fontSize: "16px",
             color: "rgba(255,255,255,0.9)",
+            justifyContent: "center",
           }}
         >
           <a
@@ -89,6 +96,7 @@ const DestinationHero = ({ image, title = undefined, currentPage = undefined }) 
             </>
           )}
         </div>
+        </motion.div>
       </div>
     </section>
   );

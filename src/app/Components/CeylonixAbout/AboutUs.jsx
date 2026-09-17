@@ -72,13 +72,20 @@ const CeylonixAbout = ({ aboutImage }) => {
 
               <ul className="m-0 p-0" style={{ listStyle: 'none' }}>
                 {features.map((feature, index) => (
-                  <li key={index} className="d-flex align-items-start gap-3 mb-4">
+                  <motion.li
+                    key={index}
+                    className="d-flex align-items-start gap-3 mb-4"
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.45, delay: index * 0.08 }}
+                  >
                     <FaCheckCircle className="mt-1" color="#FC0FC0" size={20} />
                     <div>
                       <h4 className="text-white m-0" style={{ fontSize: '18px' }}>{feature.title}</h4>
                       <p className="text-white-100 small" style={{ fontSize: '15px', fontStyle: 'regular' }}>{feature.text}</p>
                     </div>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
 

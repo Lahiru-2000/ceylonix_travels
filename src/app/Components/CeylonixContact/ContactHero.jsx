@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { useLocale } from "../LanguageProvider";
 
 const ContactHero = ({ image }) => {
@@ -36,6 +37,11 @@ const ContactHero = ({ image }) => {
           textAlign: "center",
         }}
       >
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
         <h1
           style={{
             margin: "0 0 20px 0",
@@ -51,6 +57,7 @@ const ContactHero = ({ image }) => {
           style={{
             display: "flex",
             alignItems: "center",
+            justifyContent: "center",
             gap: "8px",
             fontSize: "16px",
             color: "rgba(255,255,255,0.9)",
@@ -69,6 +76,7 @@ const ContactHero = ({ image }) => {
           <span style={{ color: "rgba(255,255,255,0.6)" }}>/</span>
           <span style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>{t("contactPage.hero")}</span>
         </div>
+        </motion.div>
       </div>
     </section>
   );

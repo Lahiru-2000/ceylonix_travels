@@ -7,8 +7,8 @@ const CeylonixStats = () => {
   const { t } = useLocale();
   const stats = [
     { label: t("stats.years"), value: '20+' },
-    { label: t("stats.customers"), value: '5k+' },
-    { label: t("stats.visitors"), value: '45+' },
+    { label: t("stats.customers"), value: '2k+' },
+    { label: t("stats.visitors"), value: '30+' },
     { label: t("stats.awards"), value: '12+' }
   ];
 

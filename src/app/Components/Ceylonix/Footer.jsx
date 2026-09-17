@@ -93,8 +93,8 @@ const CeylonixFooter = ({ logoImage }) => {
 
                 <div>
                   <p className="footer-contact-label">{t("footer.mobileLabel")}</p>
-                  <a href="tel:+94776576689" className="footer-contact-value">
-                    077 657 6689
+                  <a href="tel:+94701707777" className="footer-contact-value">
+                    +94 70 170 7777
                   </a>
                 </div>
               </div>

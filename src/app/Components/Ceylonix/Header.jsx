@@ -47,7 +47,7 @@ const CeylonixHeader = ({ logoImage }) => {
     { title: t("nav.about"), href: "/about-us" },
     { title: t("nav.destinations"), href: "/destinations" },
     { title: t("nav.gallery"), href: "/gallery" },
-    { title: t("nav.blog"), href: "/blog" },
+    // { title: t("nav.blog"), href: "/blog" },
   ];
 
   return (
@@ -100,7 +100,7 @@ const CeylonixHeader = ({ logoImage }) => {
         </nav>
 
         <div className="d-flex align-items-center gap-2 gap-md-3 justify-content-between">
-          <div className="d-none d-lg-flex align-items-center gap-2">
+          {/* <div className="d-none d-lg-flex align-items-center gap-2">
             {availableLocales.map((lang) => (
               <button
                 key={lang}
@@ -118,7 +118,7 @@ const CeylonixHeader = ({ logoImage }) => {
                 {localeLabels[lang]}
               </button>
             ))}
-          </div>
+          </div> */}
 
           <Link
             href="/contact"
@@ -259,7 +259,7 @@ const CeylonixHeader = ({ logoImage }) => {
                 background: "linear-gradient(to top, #01000B 80%, transparent)",
               }}
             >
-              <div className="d-flex flex-wrap gap-2 mb-3">
+              {/* <div className="d-flex flex-wrap gap-2 mb-3">
                 {availableLocales.map((lang) => (
                   <button
                     key={lang}
@@ -277,7 +277,7 @@ const CeylonixHeader = ({ logoImage }) => {
                     {localeLabels[lang]}
                   </button>
                 ))}
-              </div>
+              </div> */}
 
               <Link
                 href="/contact"

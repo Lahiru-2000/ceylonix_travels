@@ -1,12 +1,16 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { HiLocationMarker } from "react-icons/hi";
 import { HiArrowRight } from "react-icons/hi2";
 import { FaStar } from "react-icons/fa";
 import { useLocale } from "../LanguageProvider";
 
-const DestinationPlacesGrid = ({ items }) => {
+/**
+ * @param {{ items: any[], showIntro?: boolean, showRegionHeading?: boolean }} props
+ */
+const DestinationPlacesGrid = ({ items, showIntro = true, showRegionHeading = true }) => {
   const { t } = useLocale();
   const groupedItems = items.reduce((groups, item) => {
     const region = item.region || "Sri Lanka";
@@ -22,23 +26,38 @@ const DestinationPlacesGrid = ({ items }) => {
   return (
     <section style={{ background: "#0C111D", padding: "80px 0" }}>
       <div className="ceylon-container">
-        <span className="ceylon-subtitle">{t("destPage.subtitle")}</span>
-        <h2 className="ceylon-title text-white mb-3" style={{ fontSize: "42px" }}>
-          {t("destPage.title")}
-        </h2>
-        <p style={{ color: "rgba(255,255,255,0.66)", marginBottom: "28px", fontSize: "14px" }}>
-          {t("destPage.description")}
-        </p>
+        {showIntro ? (
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="ceylon-subtitle">{t("destPage.subtitle")}</span>
+            <h2 className="ceylon-title text-white mb-3" style={{ fontSize: "42px" }}>
+              {t("destPage.title")}
+            </h2>
+            <p style={{ color: "rgba(255,255,255,0.66)", marginBottom: "28px", fontSize: "14px" }}>
+              {t("destPage.description")}
+            </p>
+          </motion.div>
+        ) : null}
 
         {groupedItems.map((group) => (
           <div key={group.region} style={{ marginBottom: "48px" }}>
+            {showRegionHeading ? (
             <h3 className="ceylon-title text-white mb-4" style={{ fontSize: "28px" }}>
               {group.region}
             </h3>
+            ) : null}
             <div className="row g-4">
-              {group.items.map((item) => (
+              {group.items.map((item, index) => (
                 <div key={item.slug} className="col-md-6 col-xl-3">
-                  <article
+                  <motion.article
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.45, delay: index * 0.06 }}
                     style={{
                       borderRadius: "20px",
                       border: "1px solid #FAC3FF",
@@ -97,7 +116,7 @@ const DestinationPlacesGrid = ({ items }) => {
                         <HiArrowRight size={16} />
                       </Link>
                     </div>
-                  </article>
+                  </motion.article>
                 </div>
               ))}
             </div>

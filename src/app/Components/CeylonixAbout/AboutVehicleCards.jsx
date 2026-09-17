@@ -3,17 +3,31 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useLocale } from "../LanguageProvider";
 
-const AboutGuideCards = ({ image }) => {
+const AboutVehicleCards = ({ busImage, vanImage, carImage }) => {
   const { t } = useLocale();
-  const guides = [
-    { name: "Nirmal Perera" },
-    { name: "Nirmal Perera" },
-    { name: "Nirmal Perera" },
-    { name: "Nirmal Perera" },
+  const vehicles = [
+    {
+      name: t("aboutPage.busName"),
+      role: t("aboutPage.busRole"),
+      badge: t("aboutPage.busBadge"),
+      image: '../../assets/images/ceylonix/metro bus.jpg',
+    },
+    {
+      name: t("aboutPage.vanName"),
+      role: t("aboutPage.vanRole"),
+      badge: t("aboutPage.vanBadge"),
+      image: '../../assets/images/ceylonix/van.jpg',
+    },
+    {
+      name: t("aboutPage.carName"),
+      role: t("aboutPage.carRole"),
+      badge: t("aboutPage.carBadge"),
+      image: '../../assets/images/ceylonix/cartravel.jpg',
+    },
   ];
 
   return (
-    <section style={{ background: "#0C111D", padding: "85px 0 95px" }}>
+    <section style={{ background: "#0C111D", padding: "20px 0 95px" ,paddingTop:"70px"}}>
       <div className="ceylon-container">
         <motion.div
           className="text-center mb-4"
@@ -22,7 +36,7 @@ const AboutGuideCards = ({ image }) => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="ceylon-subtitle">{t("aboutPage.guidesSubtitle")}</span>
+          <span className="ceylon-subtitle">{t("aboutPage.vehiclesSubtitle")}</span>
           <h2
             style={{
               color: "#FFFFFF",
@@ -31,7 +45,7 @@ const AboutGuideCards = ({ image }) => {
               marginBottom: "15px",
             }}
           >
-            {t("aboutPage.guidesTitle")}
+            {t("aboutPage.vehiclesTitle")}
           </h2>
           <p
             style={{
@@ -40,16 +54,12 @@ const AboutGuideCards = ({ image }) => {
               margin: "0 auto",
             }}
           >
-            {t("aboutPage.guidesText")}
+            {t("aboutPage.vehiclesText")}
           </p>
         </motion.div>
-        <div className="row guide.cards" >
-          {guides.map((guide, index) => (
-            <div
-              className="col-12 col-lg-3 col-sm-6 col-md-4 mt-4 "
-              key={index}
-             
-            >
+        <div className="row justify-content-center">
+          {vehicles.map((vehicle, index) => (
+            <div className="col-12 col-sm-8 col-md-6 col-lg-4 mt-4" key={vehicle.name}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -61,12 +71,13 @@ const AboutGuideCards = ({ image }) => {
                   border: "2px solid #E91E8C",
                   padding: "16px",
                   boxShadow: "0 14px 32px rgba(0,0,0,0.45)",
+                  height: "100%",
                 }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={image}
-                  alt={guide.name}
+                  src={vehicle.image}
+                  alt={vehicle.name}
                   style={{
                     width: "100%",
                     height: "240px",
@@ -84,7 +95,7 @@ const AboutGuideCards = ({ image }) => {
                       fontWeight: 700,
                     }}
                   >
-                    {guide.name}
+                    {vehicle.name}
                   </h4>
                   <p
                     style={{
@@ -94,7 +105,7 @@ const AboutGuideCards = ({ image }) => {
                       fontWeight: 500,
                     }}
                   >
-                    {t("aboutPage.guideRole")}
+                    {vehicle.role}
                   </p>
                   <div
                     style={{
@@ -108,7 +119,7 @@ const AboutGuideCards = ({ image }) => {
                       fontWeight: 500,
                     }}
                   >
-                    {t("aboutPage.guideYears")}
+                    {vehicle.badge}
                   </div>
                 </div>
               </motion.div>
@@ -120,4 +131,4 @@ const AboutGuideCards = ({ image }) => {
   );
 };
 
-export default AboutGuideCards;
+export default AboutVehicleCards;

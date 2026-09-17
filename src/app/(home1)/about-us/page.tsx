@@ -8,6 +8,7 @@ import CeylonixStats from "../../Components/Ceylonix/Stats";
 import CeylonixTestimonials from "../../Components/CeylonixAbout/WhatTraverlersSay";
 import AboutHero from "../../Components/CeylonixAbout/AboutHero";
 import AboutGuideCards from "../../Components/CeylonixAbout/AboutGuideCards";
+import AboutVehicleCards from "../../Components/CeylonixAbout/AboutVehicleCards";
 
 const logoPath = "/assets/images/ceylonix/logoceylonix.png";
 const heroImage = "/assets/images/ceylonix/about-bg.jpg";
@@ -15,6 +16,9 @@ const aboutImage = "/assets/images/ceylonix/about-page-pic.png";
 const whyChooseUsImage = "/assets/images/ceylonix/about-contact.png";
 const testimonialImage = "/assets/images/ceylonix/traveler-thubs-up.png";
 const guides = "/assets/images/ceylonix/WhatOurTravelers Say.png";
+const busImage = "https://images.unsplash.com/photo-1544620341-11cb2cd57db8?auto=format&fit=crop&w=900&q=80";
+const vanImage = "https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?auto=format&fit=crop&w=900&q=80";
+const carImage = "https://www.thecarexpert.co.uk/wp-content/uploads/2026/01/BMW-iX3-Neue-Klasse-696x348.jpg";
 
 const AboutUsPage = () => {
   return (
@@ -28,7 +32,8 @@ const AboutUsPage = () => {
         </div>
        
         <CeylonixStats />
-        <AboutGuideCards image={guides} />
+        {/* <AboutGuideCards image={guides} /> */}
+        <AboutVehicleCards busImage={busImage} vanImage={vanImage} carImage={carImage} />
         <CeylonixTestimonials userImg={testimonialImage} />
       </main>
       <CeylonixFooter logoImage="/assets/images/ceylonix/footerLogo.png" />

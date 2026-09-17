@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import CeylonixHeader from "../../Components/Ceylonix/Header";
 import CeylonixFooter from "../../Components/Ceylonix/Footer";
 import CeylonixCTA from "../../Components/Ceylonix/CTA";
@@ -126,36 +127,52 @@ const GalleryPage = () => {
               height: "100%",
             }}
           >
-            <h1 style={{ margin: "0 0 20px 0", color: "#fff", fontWeight: 800, fontSize: "64px", lineHeight: 1.1 }}>
-              {t("galleryPage.hero")}
-            </h1>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "16px", color: "rgba(255,255,255,0.9)" }}>
-              <a href="/" style={{ color: "#E91E8C", textDecoration: "none", fontWeight: 500 }}>
-                {t("common.home")}
-              </a>
-              <span style={{ color: "rgba(255,255,255,0.6)" }}>/</span>
-              <span style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>{t("galleryPage.hero")}</span>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h1 style={{ margin: "0 0 20px 0", color: "#fff", fontWeight: 800, fontSize: "64px", lineHeight: 1.1 }}>
+                {t("galleryPage.hero")}
+              </h1>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", fontSize: "16px", color: "rgba(255,255,255,0.9)" }}>
+                <a href="/" style={{ color: "#E91E8C", textDecoration: "none", fontWeight: 500 }}>
+                  {t("common.home")}
+                </a>
+                <span style={{ color: "rgba(255,255,255,0.6)" }}>/</span>
+                <span style={{ color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>{t("galleryPage.hero")}</span>
+              </div>
+            </motion.div>
           </div>
         </section>
 
         <section style={{ background: "#060A24", padding: "70px 0 80px" }}>
           <div className="ceylon-container">
-            <span className="ceylon-subtitle" style={{ marginBottom: "6px" }}>
-              {t("galleryPage.subtitle")}
-            </span>
-            <h2 className="ceylon-title text-white mb-2" style={{ fontSize: "52px" }}>
-              {t("galleryPage.title")}
-            </h2>
-            <p style={{ color: "rgba(255,255,255,0.66)", marginBottom: "30px", fontSize: "13px" }}>
-              {t("galleryPage.description")}
-            </p>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="ceylon-subtitle" style={{ marginBottom: "6px" }}>
+                {t("galleryPage.subtitle")}
+              </span>
+              <h2 className="ceylon-title text-white mb-2" style={{ fontSize: "52px" }}>
+                {t("galleryPage.title")}
+              </h2>
+              <p style={{ color: "rgba(255,255,255,0.66)", marginBottom: "30px", fontSize: "13px" }}>
+                {t("galleryPage.description")}
+              </p>
+            </motion.div>
 
             <div className="row g-3 g-md-4">
               {currentItems.map((image, index) => (
                 <div className="col-6 col-md-4 col-xl-3" key={`${image}-${startIndex + index}`}>
-                  <button
+                  <motion.button
                     type="button"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.45, delay: index * 0.04 }}
                     onClick={() => setSelectedIndex(startIndex + index)}
                     aria-label={`View gallery photo ${startIndex + index + 1}`}
                     style={{
@@ -174,13 +191,17 @@ const GalleryPage = () => {
                       alt={`Sri Lanka gallery ${startIndex + index + 1}`}
                       style={{ width: "100%", height: "170px", objectFit: "cover", display: "block" }}
                     />
-                  </button>
+                  </motion.button>
                 </div>
               ))}
             </div>
 
-            <div
+            <motion.div
               className="d-flex justify-content-center align-items-center gap-2"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: 0.12 }}
               style={{ marginTop: "32px" }}
             >
               <button
@@ -215,7 +236,7 @@ const GalleryPage = () => {
               >
                 ›
               </button>
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -224,12 +245,18 @@ const GalleryPage = () => {
 
       <CeylonixFooter logoImage="/assets/images/ceylonix/footerLogo.png" />
 
+      <AnimatePresence>
       {selectedImage && (
-        <div
+        <motion.div
+          key="gallery-lightbox"
           role="dialog"
           aria-modal="true"
           aria-label="Full size gallery photo"
           onClick={closeLightbox}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
           style={{
             position: "fixed",
             inset: 0,
@@ -322,8 +349,9 @@ const GalleryPage = () => {
           >
             ›
           </button>
-        </div>
+        </motion.div>
       )}
+      </AnimatePresence>
     </div>
   );
 };

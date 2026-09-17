@@ -4,7 +4,7 @@ import CeylonixHeader from "../../Components/Ceylonix/Header";
 import CeylonixFooter from "../../Components/Ceylonix/Footer";
 import CeylonixCTA from "../../Components/Ceylonix/CTA";
 import DestinationHero from "../../Components/CeylonixDestination/DestinationHero";
-import DestinationPlacesGrid from "../../Components/CeylonixDestination/DestinationPlacesGrid";
+import DestinationRegionGrid from "../../Components/CeylonixDestination/DestinationRegionGrid";
 import DestinationExperience from "../../Components/CeylonixDestination/WatchStory";
 import DestinationDiscoveries from "../../Components/CeylonixDestination/DestinationDiscoveries";
 import { getDestinations } from "../../lib/getDestinations";
@@ -51,7 +51,7 @@ const DestinationsPage = () => {
         ) : isLoading ? (
           <p className="ceylon-container text-white py-5">{t("destPage.loading")}</p>
         ) : (
-          <DestinationPlacesGrid items={destinationItems} />
+          <DestinationRegionGrid items={destinationItems} />
         )}
         <DestinationExperience image="/assets/images/ceylonix/watch-story.jpg" />
         <CeylonixCTA ctaImg="/assets/images/ceylonix/planTrip.png" />

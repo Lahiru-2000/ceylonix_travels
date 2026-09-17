@@ -67,6 +67,12 @@ const CeylonixTestimonials = ({ userImg }) => {
           </div>
 
           <div className="col-lg-8">
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+            >
             <span className="ceylon-subtitle text-white d-block mb-2">{t("testimonials.sectionSubtitle")}</span>
             <h2 className="ceylon-title text-white mb-4 pt-2" style={{font:"60px"}}>{t("testimonials.loveTitle")}</h2>
 
@@ -147,6 +153,7 @@ const CeylonixTestimonials = ({ userImg }) => {
                 </button>
               </div>
             </div>
+            </motion.div>
           </div>
         </div>
       </div>

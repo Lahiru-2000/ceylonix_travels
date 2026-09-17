@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { useLocale } from "../LanguageProvider";
 
 const DestinationDiscoveries = ({ posts }) => {
@@ -7,6 +8,12 @@ const DestinationDiscoveries = ({ posts }) => {
   return (
     <section style={{ background: "#0C111D", padding: "0 0 95px",  }}>
       <div className="ceylon-container" style={{marginTop: "50px" }}>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
         <span className="ceylon-subtitle">{t("destPage.featuredSubtitle")}</span>
         <h2 className="ceylon-title text-white mb-3" style={{ fontSize: "42px" }}>
           {t("destPage.featuredTitle")}
@@ -14,10 +21,16 @@ const DestinationDiscoveries = ({ posts }) => {
         <p style={{ color: "rgba(255,255,255,0.67)", marginBottom: "24px", fontSize: "14px" }}>
           {t("destPage.featuredText")}
         </p>
+        </motion.div>
         <div className="row g-4">
           {posts.map((post, index) => (
             <div className="col-md-6 col-xl-3" key={`${post.title}-${index}`}>
-              <article>
+              <motion.article
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: index * 0.06 }}
+              >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={post.image}
@@ -27,7 +40,7 @@ const DestinationDiscoveries = ({ posts }) => {
                 <h3 style={{ margin: "12px 0 4px", color: "#fff", fontSize: "18px", fontWeight: 700 }}>{post.title}</h3>
                 <p style={{ margin: "0 0 7px", color: "rgba(255,255,255,0.58)", fontSize: "13px" }}>{post.desc}</p>
                 <span style={{ fontSize: "13px", color: "#FC0FC0", fontWeight: 600 }}>{post.price}</span>
-              </article>
+              </motion.article>
             </div>
           ))}
         </div>

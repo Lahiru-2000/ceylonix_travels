@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { FaPlay } from "react-icons/fa";
 import { useLocale } from "../LanguageProvider";
 
@@ -13,7 +14,13 @@ const DestinationExperience = ({ image }) => {
   return (
     <section style={{ background: "#0C111D", padding: "0 0 90px" }}>
       <div className="ceylon-container">
-        <div className="text-center mb-4">
+        <motion.div
+          className="text-center mb-4"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <span className="ceylon-subtitle">{t("destPage.watchSubtitle")}</span>
           <h2 className="ceylon-title text-white mb-3" style={{ fontSize: "42px" }}>
             {t("destPage.watchTitle")}
@@ -51,9 +58,13 @@ const DestinationExperience = ({ image }) => {
               {t("common.requestTour")}
             </Link>
           </div>
-        </div>
-        <div
+        </motion.div>
+        <motion.div
           className="gallery-container position-relative mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.08 }}
           style={{
             borderRadius: "18px",
             overflow: "hidden",
@@ -125,7 +136,7 @@ const DestinationExperience = ({ image }) => {
               </button>
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

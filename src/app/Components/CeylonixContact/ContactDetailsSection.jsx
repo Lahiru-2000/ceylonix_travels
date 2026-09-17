@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { useLocale } from "../LanguageProvider";
 
 const contactIcons = ["⌖", "✉", "☎"];
@@ -15,9 +16,13 @@ const ContactDetailsSection = ({ image }) => {
     <section style={{ background: "#0C111D", padding: "70px 0 80px" }}>
       <div className="ceylon-container">
         <div className="row g-3 mb-4">
-          {contactCards.map((card) => (
+          {contactCards.map((card, index) => (
             <div key={card.title} className="col-md-4">
-              <article
+              <motion.article
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
                 style={{
                   border: "1px solid rgba(255,255,255,0.16)",
                   borderRadius: "10px",
@@ -45,7 +50,7 @@ const ContactDetailsSection = ({ image }) => {
                 <h3 style={{ margin: "0 0 5px", color: "#FC0FC0", fontSize: "14px", fontWeight: 700 }}>{card.title}</h3>
                 <p style={{ margin: "0 0 3px", color: "#fff", fontSize: "12px" }}>{card.line1}</p>
                 <p style={{ margin: 0, color: "rgba(255,255,255,0.7)", fontSize: "11px" }}>{card.line2}</p>
-              </article>
+              </motion.article>
             </div>
           ))}
         </div>
@@ -55,7 +60,11 @@ const ContactDetailsSection = ({ image }) => {
           <div className="row g-4 align-items-stretch">
             {/* Image Box */}
             <div className="col-lg-5">
-              <div
+              <motion.div
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
                 style={{
                   background: "#000000",
                   borderRadius: "24px",
@@ -78,12 +87,16 @@ const ContactDetailsSection = ({ image }) => {
                     borderRadius: "24px",
                   }}
                 />
-              </div>
+              </motion.div>
             </div>
 
             {/* Form Box */}
             <div className="col-lg-7" id="inquiry" style={{ scrollMarginTop: "110px" }}>
-              <div
+              <motion.div
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
                 style={{
                   background: "#000000",
                   borderRadius: "24px",
@@ -102,7 +115,7 @@ const ContactDetailsSection = ({ image }) => {
 
                 <form onSubmit={(e) => e.preventDefault()} style={{ flex: 1, display: "flex", flexDirection: "column" }}>
                   <div className="row g-3" style={{ marginRight: 0, marginLeft: 0, marginBottom: "16px" }}>
-                    <div className="col-md-6" style={{ paddingRight: 0, paddingLeft: 0 }}>
+                    <div className="col-md-6" style={{ paddingRight: "8px", paddingLeft: "8px" }}>
                       <label htmlFor="contactName" style={{ display: "block", color: "#fff", fontSize: "13px", marginBottom: "8px", fontWeight: 600 }}>
                         {t("contactPage.name")}
                       </label>
@@ -123,7 +136,7 @@ const ContactDetailsSection = ({ image }) => {
                         }}
                       />
                     </div>
-                    <div className="col-md-6" style={{ paddingRight: 0, paddingLeft: 0 }}>
+                    <div className="col-md-6" style={{ paddingRight: "8px", paddingLeft: "8px" }}>
                       <label htmlFor="contactEmail" style={{ display: "block", color: "#fff", fontSize: "13px", marginBottom: "8px", fontWeight: 600 }}>
                         {t("contactPage.email")}
                       </label>
@@ -193,7 +206,7 @@ const ContactDetailsSection = ({ image }) => {
                     {t("common.sendInquiry")}
                   </button>
                 </form>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
