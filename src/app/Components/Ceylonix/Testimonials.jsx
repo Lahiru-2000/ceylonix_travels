@@ -53,7 +53,7 @@ const CeylonixTestimonials = ({ userImg }) => {
   };
 
   return (
-    <section className="ceylon-testimonials ceylon-section" style={{ background: "#000119"    }}>
+    <section className="ceylon-testimonials ceylon-section" style={{ background: "#192030"    }}>
       <div className="ceylon-container">
         <div className="row align-items-center ">
           <div className="col-lg-4">
